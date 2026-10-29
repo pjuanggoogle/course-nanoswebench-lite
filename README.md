@@ -1,8 +1,16 @@
-# MyTest 113-Task Micro-Benchmark Suite
+# Nano SWE Bench Lite
+
+Nano SWE Bench Lite is for educational purposes only.
 
 Self-contained Python bug-fixing benchmark (`103` training tasks + `10` unseen
 test tasks) designed for training and evaluating a **124M-parameter NanoGPT**
 tool-calling coding agent.
+
+These tasks were all distilled from public, open source benchmarks.  They
+simulate issues found in SWE Bench Lite but reduced to fit in a minuscule
+context window.
+
+The micro benchmarks in this suite contain no Google proprietary code.
 
 ## Why These Task Constraints Were Needed for NanoGPT
 
