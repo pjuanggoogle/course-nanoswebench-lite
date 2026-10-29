@@ -1,0 +1,13 @@
+diff --git a/astropy_modeling/bbox.py b/astropy_modeling/bbox.py
+index 14a34d9..ed63688 100644
+--- a/astropy_modeling/bbox.py
++++ b/astropy_modeling/bbox.py
+@@ -1,6 +1,6 @@
+ import math
+ 
+ def validate_bounds(lower: float, upper: float) -> tuple[float, float]:
+-    if lower > upper:
+-        raise ValueError("lower bound cannot exceed upper bound")
++    if math.isnan(lower) or math.isnan(upper) or lower > upper:
++        raise ValueError("Invalid bounds")
+     return (float(lower), float(upper))

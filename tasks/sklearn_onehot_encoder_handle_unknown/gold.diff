@@ -1,0 +1,14 @@
+diff --git a/sklearn_encode/onehot.py b/sklearn_encode/onehot.py
+index 03ac842..aaa32fa 100644
+--- a/sklearn_encode/onehot.py
++++ b/sklearn_encode/onehot.py
+@@ -11,6 +11,9 @@ class OneHotEncoder:
+         out = []
+         for v in values:
+             if v not in self.categories_:
++                if self.handle_unknown == "ignore":
++                    out.append([0] * len(self.categories_))
++                    continue
+                 raise ValueError(f"Unknown category: {v}")
+             out.append([1 if c == v else 0 for c in self.categories_])
+         return out

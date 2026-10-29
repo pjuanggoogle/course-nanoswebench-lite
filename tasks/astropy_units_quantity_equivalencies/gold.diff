@@ -1,0 +1,11 @@
+diff --git a/astropy_units/equiv.py b/astropy_units/equiv.py
+index a2a7325..84da554 100644
+--- a/astropy_units/equiv.py
++++ b/astropy_units/equiv.py
+@@ -4,4 +4,6 @@ def convert_with_equivalencies(val: float, from_unit: str, to_unit: str, equival
+     for u1, u2, fwd, bwd in equivalencies:
+         if u1 == from_unit and u2 == to_unit:
+             return fwd(val)
++        if u2 == from_unit and u1 == to_unit:
++            return bwd(val)
+     raise ValueError(f"Cannot convert {from_unit} to {to_unit}")

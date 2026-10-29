@@ -1,0 +1,14 @@
+diff --git a/sklearn_impute/median.py b/sklearn_impute/median.py
+index 760be76..d0dd63f 100644
+--- a/sklearn_impute/median.py
++++ b/sklearn_impute/median.py
+@@ -1,5 +1,8 @@
+ def impute_median(values: list[float | None]) -> list[float]:
+     valid = sorted(x for x in values if x is not None)
+     n = len(valid)
+-    med = float(valid[n // 2])
++    if n % 2 == 1:
++        med = float(valid[n // 2])
++    else:
++        med = (valid[n // 2 - 1] + valid[n // 2]) / 2.0
+     return [med if x is None else float(x) for x in values]

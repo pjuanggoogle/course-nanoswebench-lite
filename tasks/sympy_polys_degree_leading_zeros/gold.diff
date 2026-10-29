@@ -1,0 +1,14 @@
+diff --git a/sympy_polys/degree.py b/sympy_polys/degree.py
+index 9f97498..9fa3b1c 100644
+--- a/sympy_polys/degree.py
++++ b/sympy_polys/degree.py
+@@ -1,4 +1,7 @@
+ def poly_degree(coeffs: list[float]) -> int:
+-    if not coeffs:
++    i = 0
++    while i < len(coeffs) and coeffs[i] == 0:
++        i += 1
++    if i == len(coeffs):
+         return -1
+-    return len(coeffs) - 1
++    return len(coeffs) - 1 - i

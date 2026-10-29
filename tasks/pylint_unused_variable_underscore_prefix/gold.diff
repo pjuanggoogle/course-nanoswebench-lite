@@ -1,0 +1,10 @@
+diff --git a/pylint_vars/unused.py b/pylint_vars/unused.py
+index 991d98c..a2090f4 100644
+--- a/pylint_vars/unused.py
++++ b/pylint_vars/unused.py
+@@ -10,4 +10,4 @@ def find_unused_variables(code: str) -> list[str]:
+                 stored.append(node.id)
+             elif isinstance(node.ctx, ast.Load):
+                 loaded.add(node.id)
+-    return [name for name in stored if name not in loaded]
++    return [name for name in stored if name not in loaded and not name.startswith("_")]

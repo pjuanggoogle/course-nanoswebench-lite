@@ -1,0 +1,10 @@
+diff --git a/pytest_monkeypatch/env.py b/pytest_monkeypatch/env.py
+index 680d44c..106c984 100644
+--- a/pytest_monkeypatch/env.py
++++ b/pytest_monkeypatch/env.py
+@@ -1,2 +1,4 @@
+ def delenv(env_dict: dict, name: str, raising: bool = True):
+-    return env_dict.pop(name)
++    if raising:
++        return env_dict.pop(name)
++    return env_dict.pop(name, None)

@@ -1,0 +1,11 @@
+diff --git a/mpl_cbook/linestyle.py b/mpl_cbook/linestyle.py
+index 4f9c307..bfb2909 100644
+--- a/mpl_cbook/linestyle.py
++++ b/mpl_cbook/linestyle.py
+@@ -8,4 +8,6 @@ SHORT_TO_LONG = {
+ def resolve_linestyle(ls: str) -> str:
+     if ls in SHORT_TO_LONG:
+         return SHORT_TO_LONG[ls]
++    if ls in SHORT_TO_LONG.values():
++        return ls
+     raise ValueError(f"Unknown linestyle: {ls}")

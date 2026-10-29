@@ -1,0 +1,16 @@
+diff --git a/click_cli/core.py b/click_cli/core.py
+index 6382e33..cccb62c 100644
+--- a/click_cli/core.py
++++ b/click_cli/core.py
+@@ -24,9 +24,9 @@ class Group(Command):
+         self.commands[name or cmd.name] = cmd
+ 
+     def get_command(self, ctx: Context, cmd_name: str) -> Command:
++        if cmd_name in self.commands:
++            return self.commands[cmd_name]
+         if not ctx.prefix_matching:
+-            if cmd_name in self.commands:
+-                return self.commands[cmd_name]
+             raise NoSuchCommandError(f"No such command '{cmd_name}'.")
+ 
+         matches = [n for n in self.commands if n.startswith(cmd_name)]

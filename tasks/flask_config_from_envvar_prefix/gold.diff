@@ -1,0 +1,16 @@
+diff --git a/flask_config/config.py b/flask_config/config.py
+index bc6dcff..f82ad4a 100644
+--- a/flask_config/config.py
++++ b/flask_config/config.py
+@@ -6,6 +6,9 @@ def load_prefixed_env(env: dict[str, str], prefix: str = "FLASK") -> dict:
+     for k, v in env.items():
+         if not k.startswith(full_prefix):
+             continue
+-        conf_key = k.replace(full_prefix, "")
+-        out[conf_key] = json.loads(v)
++        conf_key = k[len(full_prefix):]
++        try:
++            out[conf_key] = json.loads(v)
++        except json.JSONDecodeError:
++            out[conf_key] = v
+     return out

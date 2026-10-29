@@ -1,0 +1,15 @@
+diff --git a/astropy_ascii/reader.py b/astropy_ascii/reader.py
+index f82240a..243c09e 100644
+--- a/astropy_ascii/reader.py
++++ b/astropy_ascii/reader.py
+@@ -1,7 +1,8 @@
+ def filter_data_lines(lines: list[str], comment: str = "#") -> list[str]:
+     out = []
+     for line in lines:
+-        if not line or line.startswith(comment):
++        s = line.strip()
++        if not s or s.startswith(comment):
+             continue
+-        out.append(line.strip())
++        out.append(s)
+     return out

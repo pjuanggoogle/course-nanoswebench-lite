@@ -1,0 +1,14 @@
+diff --git a/pylint_checker/cyclic_imports.py b/pylint_checker/cyclic_imports.py
+index 91ddb96..d100538 100644
+--- a/pylint_checker/cyclic_imports.py
++++ b/pylint_checker/cyclic_imports.py
+@@ -3,7 +3,8 @@ class CyclicImportChecker:
+         self.graph = {}
+ 
+     def add_import(self, from_mod: str, to_mod: str, is_top_level: bool = True, is_type_checking: bool = False):
+-        # BUG: Records all imports identically regardless of scope
++        if not is_top_level or is_type_checking:
++            return
+         if from_mod not in self.graph:
+             self.graph[from_mod] = set()
+         self.graph[from_mod].add(to_mod)

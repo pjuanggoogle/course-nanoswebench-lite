@@ -1,0 +1,12 @@
+diff --git a/xarray_merge/attrs.py b/xarray_merge/attrs.py
+index 3bff32d..fb559de 100644
+--- a/xarray_merge/attrs.py
++++ b/xarray_merge/attrs.py
+@@ -2,5 +2,7 @@ def merge_attrs(attrs_list: list[dict]) -> dict:
+     merged = {}
+     for d in attrs_list:
+         for k, v in d.items():
++            if k in merged and merged[k] != v:
++                raise ValueError(f"Conflicting attribute: {k}")
+             merged[k] = v
+     return merged

@@ -1,0 +1,12 @@
+diff --git a/sympy_core/rational.py b/sympy_core/rational.py
+index 3d3866f..4db7715 100644
+--- a/sympy_core/rational.py
++++ b/sympy_core/rational.py
+@@ -3,5 +3,7 @@ import math
+ def canonical_rational(p: int, q: int) -> tuple[int, int]:
+     if q == 0:
+         raise ZeroDivisionError("denominator cannot be zero")
++    if q < 0:
++        p, q = -p, -q
+     g = math.gcd(p, q)
+     return (p // g, q // g)

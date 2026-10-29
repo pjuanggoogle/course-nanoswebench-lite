@@ -1,0 +1,14 @@
+diff --git a/sklearn_split/split.py b/sklearn_split/split.py
+index 9078a4d..83cec18 100644
+--- a/sklearn_split/split.py
++++ b/sklearn_split/split.py
+@@ -1,6 +1,8 @@
+ import math
+ 
+ def split_sizes(n_samples: int, test_size: float = 0.25) -> tuple[int, int]:
+-    n_test = int(n_samples * test_size)
++    if not (0 < test_size < 1):
++        raise ValueError("test_size must be strictly between 0 and 1")
++    n_test = math.ceil(n_samples * test_size)
+     n_train = n_samples - n_test
+     return n_train, n_test

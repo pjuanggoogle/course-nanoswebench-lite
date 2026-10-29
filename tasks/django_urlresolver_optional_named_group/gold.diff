@@ -1,0 +1,13 @@
+diff --git a/django_urls/resolver.py b/django_urls/resolver.py
+index 6e10f0b..275ab92 100644
+--- a/django_urls/resolver.py
++++ b/django_urls/resolver.py
+@@ -7,6 +7,8 @@ def reverse_pattern(pattern: str, **kwargs) -> str:
+     def _replace_opt(m):
+         inner, name = m.group(1), m.group(2)
+         val = kwargs.get(name)
++        if val is None:
++            return ""
+         return NAMED_GROUP_RE.sub(str(val), inner)
+ 
+     out = OPT_GROUP_RE.sub(_replace_opt, pattern)

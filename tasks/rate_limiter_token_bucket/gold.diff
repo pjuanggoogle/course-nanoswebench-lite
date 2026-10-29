@@ -1,0 +1,14 @@
+diff --git a/rate_limiter.py b/rate_limiter.py
+index 5bf11d0..069918f 100644
+--- a/rate_limiter.py
++++ b/rate_limiter.py
+@@ -9,8 +9,7 @@ class TokenBucket:
+ 
+     def allow_request(self, tokens: int = 1) -> bool:
+         now = time.time()
+-        # BUG: Truncating elapsed time to int loses fractional refill on rapid requests
+-        elapsed = int(now - self.last_time)
++        elapsed = now - self.last_time
+         if elapsed > 0:
+             self.tokens = min(self.capacity, self.tokens + elapsed * self.refill_rate)
+             self.last_time = now

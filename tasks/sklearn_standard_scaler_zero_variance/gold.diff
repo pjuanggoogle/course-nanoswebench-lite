@@ -1,0 +1,13 @@
+diff --git a/sklearn_scaler/scaler.py b/sklearn_scaler/scaler.py
+index 677461e..05423ea 100644
+--- a/sklearn_scaler/scaler.py
++++ b/sklearn_scaler/scaler.py
+@@ -6,7 +6,7 @@ class StandardScaler:
+         n_cols = len(X[0])
+         means = [sum(row[j] for row in X) / n for j in range(n_cols)]
+         stds = [
+-            math.sqrt(sum((row[j] - means[j]) ** 2 for row in X) / n)
++            math.sqrt(sum((row[j] - means[j]) ** 2 for row in X) / n) or 1.0
+             for j in range(n_cols)
+         ]
+         return [[(row[j] - means[j]) / stds[j] for j in range(n_cols)] for row in X]

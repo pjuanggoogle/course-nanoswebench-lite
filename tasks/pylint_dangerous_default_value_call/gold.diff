@@ -1,0 +1,17 @@
+diff --git a/pylint_defaults/checker.py b/pylint_defaults/checker.py
+index ad8c175..adb485f 100644
+--- a/pylint_defaults/checker.py
++++ b/pylint_defaults/checker.py
+@@ -1,7 +1,11 @@
+ import ast
+ 
+ def _is_mutable_default(node: ast.AST) -> bool:
+-    return isinstance(node, (ast.List, ast.Dict, ast.Set))
++    if isinstance(node, (ast.List, ast.Dict, ast.Set)):
++        return True
++    if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
++        return node.func.id in {"list", "dict", "set"}
++    return False
+ 
+ def find_dangerous_defaults(code: str) -> list[str]:
+     tree = ast.parse(code)

@@ -1,0 +1,12 @@
+diff --git a/seaborn_utils/despine.py b/seaborn_utils/despine.py
+index cc7a833..2ae2ce1 100644
+--- a/seaborn_utils/despine.py
++++ b/seaborn_utils/despine.py
+@@ -4,5 +4,6 @@ def despine(spines: dict[str, dict], data_bounds: tuple[float, float], trim: boo
+             spines[name]["visible"] = False
+     if trim:
+         for name, sp in spines.items():
+-            sp["bounds"] = data_bounds
++            if sp.get("visible"):
++                sp["bounds"] = data_bounds
+     return spines

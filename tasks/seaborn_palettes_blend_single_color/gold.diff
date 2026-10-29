@@ -1,0 +1,13 @@
+diff --git a/seaborn_palettes/blend.py b/seaborn_palettes/blend.py
+index 1ad05d6..6e0ae6e 100644
+--- a/seaborn_palettes/blend.py
++++ b/seaborn_palettes/blend.py
+@@ -1,4 +1,8 @@
+ def blend_rgb(c1: tuple[float, float, float], c2: tuple[float, float, float], n_colors: int) -> list[tuple[float, float, float]]:
++    if n_colors <= 0:
++        return []
++    if n_colors == 1:
++        return [c1]
+     out = []
+     for i in range(n_colors):
+         t = i / (n_colors - 1)

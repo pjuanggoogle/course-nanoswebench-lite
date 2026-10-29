@@ -1,0 +1,16 @@
+diff --git a/sklearn_split/kfold.py b/sklearn_split/kfold.py
+index 4664366..35cbcc0 100644
+--- a/sklearn_split/kfold.py
++++ b/sklearn_split/kfold.py
+@@ -1,9 +1,9 @@
+ def kfold_indices(n_samples: int, n_splits: int) -> list[list[int]]:
+-    base = n_samples // n_splits
++    base, rem = divmod(n_samples, n_splits)
+     folds = []
+     curr = 0
+     for i in range(n_splits):
+-        end = n_samples if i == n_splits - 1 else curr + base
++        end = curr + base + (1 if i < rem else 0)
+         folds.append(list(range(curr, end)))
+         curr = end
+     return folds

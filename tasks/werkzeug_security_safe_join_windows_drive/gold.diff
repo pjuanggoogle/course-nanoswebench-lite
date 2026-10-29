@@ -1,0 +1,12 @@
+diff --git a/werkzeug_sec/paths.py b/werkzeug_sec/paths.py
+index f9d7770..ffc7f41 100644
+--- a/werkzeug_sec/paths.py
++++ b/werkzeug_sec/paths.py
+@@ -2,6 +2,6 @@ import posixpath
+ 
+ def safe_join(base: str, *paths: str) -> str | None:
+     for p in paths:
+-        if p.startswith("/") or ".." in p.split("/"):
++        if p.startswith("/") or "\\" in p or ":" in p or ".." in p.split("/"):
+             return None
+     return posixpath.join(base, *paths)

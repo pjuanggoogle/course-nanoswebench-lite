@@ -1,0 +1,14 @@
+diff --git a/pytest_caplog/caplog.py b/pytest_caplog/caplog.py
+index 415893d..3d51f12 100644
+--- a/pytest_caplog/caplog.py
++++ b/pytest_caplog/caplog.py
+@@ -9,5 +9,7 @@ class LogCapture:
+     def at_level(self, level: int):
+         old_level = self.logger.level
+         self.logger.setLevel(level)
+-        yield
+-        self.logger.setLevel(old_level)
++        try:
++            yield
++        finally:
++            self.logger.setLevel(old_level)

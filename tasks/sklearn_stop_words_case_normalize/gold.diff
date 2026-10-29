@@ -1,0 +1,14 @@
+diff --git a/sklearn_text/stopwords.py b/sklearn_text/stopwords.py
+index 8497b65..7604a3a 100644
+--- a/sklearn_text/stopwords.py
++++ b/sklearn_text/stopwords.py
+@@ -1,7 +1,8 @@
+ def filter_stop_words(tokens: list[str], stop_words: set[str], lowercase: bool = True) -> list[str]:
++    stops = {s.lower() for s in stop_words} if lowercase else stop_words
+     out = []
+     for tok in tokens:
+         w = tok.lower() if lowercase else tok
+-        if w not in stop_words:
++        if w not in stops:
+             out.append(w)
+     return out

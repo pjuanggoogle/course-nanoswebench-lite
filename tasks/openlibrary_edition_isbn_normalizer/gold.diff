@@ -1,0 +1,29 @@
+diff --git a/isbn.py b/isbn.py
+index 7ef282e..5a20d69 100644
+--- a/isbn.py
++++ b/isbn.py
+@@ -1,13 +1,18 @@
+ def normalize_isbn(raw: str) -> str:
+-    digits = [c for c in raw if c.isdigit() or c in 'xX']
++    cleaned = raw.strip().replace('-', '').replace(' ', '')
++    digits = [c.upper() for c in cleaned]
+     if len(digits) == 10:
+-        # Convert to ISBN-13
++        # Validate ISBN-10 check digit
++        total10 = sum(int(d) * (10 - i) if d != 'X' else 10 for i, d in enumerate(digits))
++        if total10 % 11 != 0:
++            raise ValueError(f"Invalid ISBN-10 checksum: {raw}")
+         d12 = ['9', '7', '8'] + digits[:9]
+-        total = sum(int(d) * (1 if i % 2 == 0 else 3) for i, d in enumerate(d12))
+-        rem = total % 10
+-        # BUG: when rem == 0, check digit should be 0, not 10
+-        check = 10 - rem
++        total13 = sum(int(d) * (1 if i % 2 == 0 else 3) for i, d in enumerate(d12))
++        check = (10 - (total13 % 10)) % 10
+         return ''.join(d12) + str(check)
+     elif len(digits) == 13:
++        total13 = sum(int(d) * (1 if i % 2 == 0 else 3) for i, d in enumerate(digits))
++        if total13 % 10 != 0:
++            raise ValueError(f"Invalid ISBN-13 checksum: {raw}")
+         return ''.join(digits)
+     raise ValueError(f"Invalid ISBN: {raw}")

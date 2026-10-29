@@ -1,0 +1,30 @@
+diff --git a/ws_frame.py b/ws_frame.py
+index 0ce35be..ff1d72a 100644
+--- a/ws_frame.py
++++ b/ws_frame.py
+@@ -6,6 +6,23 @@ def decode_websocket_frame(data: bytes) -> dict:
+     is_masked = (byte1 & 0x80) != 0
+     payload_len = byte1 & 0x7F
+ 
+-    # BUG: Fails to handle masked frames (does not XOR payload) and fails on 16-bit extended length
+-    payload = data[2:2 + payload_len]
++    idx = 2
++    if payload_len == 126:
++        if len(data) < 4: raise ValueError("Incomplete 16-bit length")
++        payload_len = int.from_bytes(data[2:4], byteorder="big")
++        idx = 4
++    elif payload_len == 127:
++        if len(data) < 10: raise ValueError("Incomplete 64-bit length")
++        payload_len = int.from_bytes(data[2:10], byteorder="big")
++        idx = 10
++
++    if is_masked:
++        if len(data) < idx + 4: raise ValueError("Missing masking key")
++        mask_key = data[idx:idx + 4]
++        idx += 4
++        raw_payload = data[idx:idx + payload_len]
++        payload = bytes(b ^ mask_key[i % 4] for i, b in enumerate(raw_payload))
++    else:
++        payload = data[idx:idx + payload_len]
++
+     return {"fin": fin, "opcode": opcode, "payload": payload}

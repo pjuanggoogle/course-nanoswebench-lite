@@ -1,0 +1,17 @@
+diff --git a/pytest_param/ids.py b/pytest_param/ids.py
+index 512d2f8..a834788 100644
+--- a/pytest_param/ids.py
++++ b/pytest_param/ids.py
+@@ -1,6 +1,10 @@
+ def make_parametrize_ids(values: list, idfn=None) -> list[str]:
+     ids = []
++    seen = set()
+     for idx, val in enumerate(values):
+-        raw = idfn(val) if idfn is not None else str(val)
+-        ids.append(str(raw))
++        raw = str(idfn(val) if idfn is not None else val)
++        if raw in seen:
++            raw = f"{raw}_{idx}"
++        seen.add(raw)
++        ids.append(raw)
+     return ids

@@ -1,0 +1,12 @@
+diff --git a/django_http/cookies.py b/django_http/cookies.py
+index ffc3af3..47be505 100644
+--- a/django_http/cookies.py
++++ b/django_http/cookies.py
+@@ -8,5 +8,6 @@ def parse_cookie(cookie: str) -> dict:
+         else:
+             key, val = "", chunk
+         key, val = key.strip(), val.strip()
+-        cookiedict[key] = val
++        if key:
++            cookiedict[key] = val
+     return cookiedict

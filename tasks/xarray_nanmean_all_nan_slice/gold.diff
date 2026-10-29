@@ -1,0 +1,11 @@
+diff --git a/xarray_nanops/nanreduce.py b/xarray_nanops/nanreduce.py
+index 48fbd06..14e0a30 100644
+--- a/xarray_nanops/nanreduce.py
++++ b/xarray_nanops/nanreduce.py
+@@ -2,4 +2,6 @@ import math
+ 
+ def nanmean(values: list[float]) -> float:
+     valid = [v for v in values if not math.isnan(v)]
++    if not valid:
++        return float("nan")
+     return sum(valid) / len(valid)

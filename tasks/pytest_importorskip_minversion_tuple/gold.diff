@@ -1,0 +1,10 @@
+diff --git a/pytest_outcomes/version.py b/pytest_outcomes/version.py
+index e8bba28..b56edfd 100644
+--- a/pytest_outcomes/version.py
++++ b/pytest_outcomes/version.py
+@@ -1,2 +1,4 @@
+ def check_minversion(actual: str, minimum: str) -> bool:
+-    return actual >= minimum
++    act_t = tuple(int(x) for x in actual.split("."))
++    min_t = tuple(int(x) for x in minimum.split("."))
++    return act_t >= min_t

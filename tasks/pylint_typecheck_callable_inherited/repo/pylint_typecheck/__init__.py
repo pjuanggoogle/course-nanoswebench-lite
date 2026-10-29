@@ -1,0 +1,1 @@
+from .callable_check import is_callable_instance

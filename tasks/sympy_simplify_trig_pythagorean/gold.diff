@@ -1,0 +1,18 @@
+diff --git a/sympy_trig/trigsimp.py b/sympy_trig/trigsimp.py
+index da5f65a..e934340 100644
+--- a/sympy_trig/trigsimp.py
++++ b/sympy_trig/trigsimp.py
+@@ -1,7 +1,9 @@
+ def simplify_pythagorean(terms: dict[str, int]) -> dict[str, int]:
+     out = dict(terms)
+-    if out.get("sin2") == 1 and out.get("cos2") == 1:
+-        out["const"] = out.get("const", 0) + 1
+-        del out["sin2"]
+-        del out["cos2"]
++    c_sin = out.get("sin2", 0)
++    c_cos = out.get("cos2", 0)
++    if c_sin != 0 and c_sin == c_cos:
++        out["const"] = out.get("const", 0) + c_sin
++        out.pop("sin2", None)
++        out.pop("cos2", None)
+     return {k: v for k, v in out.items() if v != 0}

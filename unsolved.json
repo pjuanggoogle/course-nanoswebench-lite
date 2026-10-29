@@ -1,0 +1,752 @@
+{
+  "requests_query_params": {
+    "instance_id": "requests_query_params",
+    "repo": "psf/requests",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/requests_query_params:latest",
+    "problem_statement": "In requests_lib.models.PreparedRequest.prepare_url, passing query parameters where values are lists or sequences causes the parameters to be formatted with bracket notation (e.g. key=['a','b']) rather than repeated standard query parameters (key=a&key=b). Update prepare_url to use doseq=True when encoding query parameters.",
+    "requirements": "",
+    "interface": ""
+  },
+  "pytest_repr_exception_handler": {
+    "instance_id": "pytest_repr_exception_handler",
+    "repo": "pytest-dev/pytest",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/pytest_repr_exception_handler:latest",
+    "problem_statement": "In failure_formatter.py, format_failure(exc, obj) crashes when obj.__repr__() raises an unhandled exception. Update format_failure to safely catch any exception raised during repr formatting and fall back to a safe placeholder containing the exception type and message.",
+    "requirements": "",
+    "interface": ""
+  },
+  "sympy_symbolic_polynomial_gcd": {
+    "instance_id": "sympy_symbolic_polynomial_gcd",
+    "repo": "sympy/sympy",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/sympy_symbolic_polynomial_gcd:latest",
+    "problem_statement": "In polynomial.py, poly_gcd fails to compute polynomial GCD when coefficients experience floating-point numerical drift. Implement epsilon snapping threshold to treat near-zero coefficients as 0.",
+    "requirements": "",
+    "interface": ""
+  },
+  "http_chunked_transfer_decoder": {
+    "instance_id": "http_chunked_transfer_decoder",
+    "repo": "psf/urllib3",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/http_chunked_transfer_decoder:latest",
+    "problem_statement": "In chunked_decoder.py, decode_chunked_stream fails when chunk size headers include semicolon extensions (e.g. '1f;ext=val'). Strip chunk extensions before converting hex length to integer.",
+    "requirements": "",
+    "interface": ""
+  },
+  "git_commit_graph_ancestor": {
+    "instance_id": "git_commit_graph_ancestor",
+    "repo": "git/git-core",
+    "source": "SWE-bench Pro",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/git_commit_graph_ancestor:latest",
+    "problem_statement": "In graph.py, find_lowest_common_ancestors returns all common ancestors without filtering redundant ones (ancestors of ancestors). Filter out redundant higher ancestors so only true merge bases are returned.",
+    "requirements": "",
+    "interface": ""
+  },
+  "qutebrowser_url_sanitizer": {
+    "instance_id": "qutebrowser_url_sanitizer",
+    "repo": "qutebrowser/qutebrowser",
+    "source": "SWE-bench Pro",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/qutebrowser_url_sanitizer:latest",
+    "problem_statement": "In url_utils.py, sanitize_url(raw) fails to prepend a default 'http://' scheme before calling urlsplit when raw has no '://' scheme (causing host to be None), and fails to escape stray '%' signs (not followed by two hex digits) as '%25' in query strings. Prepend 'http://' when no scheme is present and escape stray '%' characters as '%25'.",
+    "requirements": "",
+    "interface": ""
+  },
+  "openlibrary_edition_isbn_normalizer": {
+    "instance_id": "openlibrary_edition_isbn_normalizer",
+    "repo": "internetarchive/openlibrary",
+    "source": "SWE-bench Pro",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/openlibrary_edition_isbn_normalizer:latest",
+    "problem_statement": "In isbn.py, normalize_isbn generates check digit 10 instead of 0 when checksum remainder is zero, and fails to validate ISBN-10 check digit 'X'. Fix checksum calculation.",
+    "requirements": "",
+    "interface": ""
+  },
+  "toml_multiline_string_escape": {
+    "instance_id": "toml_multiline_string_escape",
+    "repo": "toml/parser",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/toml_multiline_string_escape:latest",
+    "problem_statement": "In toml_strings.py, parse_multiline_basic_string fails to strip immediate leading newlines after opening triple quotes and fails to eliminate backslash line-continuations with following whitespace.",
+    "requirements": "",
+    "interface": ""
+  },
+  "diff_patch_fuzzy_applicator": {
+    "instance_id": "diff_patch_fuzzy_applicator",
+    "repo": "patch/applicator",
+    "source": "SWE-bench Pro",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/diff_patch_fuzzy_applicator:latest",
+    "problem_statement": "In patcher.py, apply_patch fails when target line numbers in unified diff hunks have shifted due to prior changes. Implement a sliding window search around target line to match hunk context lines.",
+    "requirements": "",
+    "interface": ""
+  },
+  "rate_limiter_token_bucket": {
+    "instance_id": "rate_limiter_token_bucket",
+    "repo": "rate-limiter/token-bucket",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/rate_limiter_token_bucket:latest",
+    "problem_statement": "In rate_limiter.py, TokenBucket truncates elapsed time to an integer, causing token starvation when requests arrive at subsecond intervals. Use fractional floating-point time elapsed.",
+    "requirements": "",
+    "interface": ""
+  },
+  "websocket_frame_masking_parser": {
+    "instance_id": "websocket_frame_masking_parser",
+    "repo": "websockets/parser",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/websocket_frame_masking_parser:latest",
+    "problem_statement": "In ws_frame.py, decode_websocket_frame fails to handle masked frames (does not XOR payload bytes with the masking key) and fails to parse 16-bit extended length headers when payload length is 126. Update decoding to handle masking and 16-bit payload lengths according to RFC 6455.",
+    "requirements": "",
+    "interface": ""
+  },
+  "lru_ttl_cache_expiry": {
+    "instance_id": "lru_ttl_cache_expiry",
+    "repo": "algorithms/ttl_cache",
+    "source": "Aider Benchmark",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/lru_ttl_cache_expiry:latest",
+    "problem_statement": "In ttl_cache.py, TTLCache fails to expire keys when retrieved past their TTL, and fails to purge expired keys prior to evicting least-recently-used active items on capacity overflow. Implement TTL timestamp validation on get() and active purge on put().",
+    "requirements": "",
+    "interface": ""
+  },
+  "pytest_fixture_scope_tear_down": {
+    "instance_id": "pytest_fixture_scope_tear_down",
+    "repo": "pytest-dev/pytest",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/pytest_fixture_scope_tear_down:latest",
+    "problem_statement": "In pytest_fixtures/manager.py, FixtureManager fails to execute all teardown callbacks when a generator fixture raises an exception during cleanup. If multiple fixtures are active, cleanup halts at the first exception, leaving subsequent resources leaked. Refactor teardown execution to guarantee that all remaining fixtures in the stack are cleaned up in LIFO order, and collect all teardown errors into a TeardownErrorGroup.",
+    "requirements": "",
+    "interface": ""
+  },
+  "sphinx_autodoc_typehints_pep585": {
+    "instance_id": "sphinx_autodoc_typehints_pep585",
+    "repo": "sphinx-doc/sphinx",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/sphinx_autodoc_typehints_pep585:latest",
+    "problem_statement": "In sphinx_doc/type_formatter.py, format_annotation() does not properly stringify PEP 604 union types (e.g. int | str) and nested PEP 585 generic collections (e.g. list[int | None] or dict[str, list[int]]). It raises an AttributeError when accessing __name__ on generic types or prints raw typing representations. Update format_annotation to recursively resolve union and generic alias types to clean, human-readable type strings.",
+    "requirements": "",
+    "interface": ""
+  },
+  "requests_chunked_boundary_encoding": {
+    "instance_id": "requests_chunked_boundary_encoding",
+    "repo": "psf/requests",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/requests_chunked_boundary_encoding:latest",
+    "problem_statement": "In requests_transport/chunked.py, encode_chunked_request() fails to properly terminate chunked HTTP streams when generator items are empty or when trailers are passed. RFC 7230 requires every chunked body to end with a final zero-length chunk '0\\r\\n' followed by trailers (or an extra '\\r\\n' if no trailers exist). Update encode_chunked_request to skip zero-length intermediate chunks and guarantee the terminal zero chunk with trailers.",
+    "requirements": "",
+    "interface": ""
+  },
+  "pylint_cyclic_import_detector": {
+    "instance_id": "pylint_cyclic_import_detector",
+    "repo": "pylint-dev/pylint",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/pylint_cyclic_import_detector:latest",
+    "problem_statement": "In pylint_checker/cyclic_imports.py, CyclicImportChecker inspects module ASTs and flags circular import chains. However, it incorrectly treats deferred local imports (imports inside functions/methods or inside 'if TYPE_CHECKING:') as top-level module cycles. Update check_imports to distinguish top-level module imports from local/type-checking guarded imports, only reporting genuine top-level cyclic imports.",
+    "requirements": "",
+    "interface": ""
+  },
+  "flask_stream_with_context_generator": {
+    "instance_id": "flask_stream_with_context_generator",
+    "repo": "pallets/flask",
+    "source": "SWE-bench Lite",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/flask_stream_with_context_generator:latest",
+    "problem_statement": "In flask_ctx/helpers.py, stream_with_context() wraps a response generator to preserve the request/app context during streaming. However, if the generator is closed early (by client disconnect or generator.close()), the active context is never popped from the context stack, causing memory leaks and test cross-contamination. Implement generator try...finally handling with generator.close() delegation to ensure context cleanup on early abort.",
+    "requirements": "",
+    "interface": ""
+  },
+  "csv_dialect_sniffer_delimiter": {
+    "instance_id": "csv_dialect_sniffer_delimiter",
+    "repo": "parsing/csv_sniffer",
+    "source": "Aider Benchmark",
+    "base_commit": "HEAD",
+    "docker_image": "mytest/csv_dialect_sniffer_delimiter:latest",
+    "problem_statement": "In csv_sniffer/sniffer.py, CSVDialectSniffer.sniff() determines the delimiter (comma, semicolon, tab, pipe) by simple frequency counting without ignoring delimiters enclosed within quoted fields. When a CSV contains quoted strings with commas (e.g. '1;\"Smith, John\";42'), the sniffer mistakenly classifies comma as the delimiter. Implement quote-aware delimiter frequency analysis with column consistency scoring.",
+    "requirements": "",
+    "interface": ""
+  },
+  "click_command_prefix_override": {
+    "instance_id": "click_command_prefix_override",
+    "repo": "pallets/click",
+    "base_commit": "HEAD",
+    "problem_statement": "In click_cli/core.py, Group.get_command(ctx, cmd_name) performs prefix matching before checking for an exact command name match. When both 'run' and 'runner' are registered on a Group with prefix_matching=True, calling get_command(ctx, 'run') raises AmbiguousCommandError instead of returning the exact match. Update Group.get_command so exact command matches take precedence over prefix matching."
+  },
+  "requests_params_bool_lowercase": {
+    "instance_id": "requests_params_bool_lowercase",
+    "repo": "psf/requests",
+    "base_commit": "HEAD",
+    "problem_statement": "In requests_params/models.py, encode_query_params(data, normalize_bool=False) formats boolean values using str(v), producing 'True' and 'False' instead of lowercase 'true' and 'false' when normalize_bool=True. Update encode_query_params so boolean values (both standalone values and elements inside lists/tuples) are serialized as lowercase 'true'/'false' when normalize_bool=True, without altering integer 1 or 0."
+  },
+  "dateutil_rrule_leap_easter": {
+    "instance_id": "dateutil_rrule_leap_easter",
+    "repo": "dateutil/dateutil",
+    "base_commit": "HEAD",
+    "problem_statement": "In dateutil_rrule/rrule.py, rrule.between(after, before) raises ValueError('day is out of range for month') when generating YEARLY recurrences for February 29th across non-leap years. Update rrule.between so non-leap years wheredate(year, month, day) is invalid are skipped instead of raising ValueError."
+  },
+  "django_slugify_unicode_hyphens": {
+    "instance_id": "django_slugify_unicode_hyphens",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_text/text.py, slugify(value, allow_unicode=False) strips leading and trailing hyphens before replacing whitespace and collapsing repeated hyphens, leaving leading/trailing underscores and hyphens when punctuation or leading spaces are converted. Update slugify so it strips both '-' and '_' from the ends after collapsing repeated hyphens/whitespace."
+  },
+  "django_urlresolver_optional_named_group": {
+    "instance_id": "django_urlresolver_optional_named_group",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_urls/resolver.py, reverse_pattern(pattern, **kwargs) substitutes optional named groups like '(?:page/(?P<page>\\d+)/)?' using str(kwargs.get(name)), producing 'page/None/' when the parameter is omitted or None. Update reverse_pattern so optional group segments are replaced with '' when their named parameter is missing or None."
+  },
+  "django_form_changed_data_initial_callable": {
+    "instance_id": "django_form_changed_data_initial_callable",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_forms/forms.py, Form.changed_data compares bound self.data values directly against self.initial values without evaluating callable initial defaults (such as lambda: 'draft'). As a result, fields with callable initial values are always marked as changed even when the submitted value matches the callable's return value. Update changed_data to call initial_val() if it is callable before comparing."
+  },
+  "flask_json_tag_datetime_utc": {
+    "instance_id": "flask_json_tag_datetime_utc",
+    "repo": "pallets/flask",
+    "base_commit": "HEAD",
+    "problem_statement": "In flask_json/tag.py, serialize_datetime(dt) appends 'Z' to dt.isoformat() for timezone-aware UTC datetimes without stripping the '+00:00' offset produced by isoformat(), resulting in invalid ISO strings ending with '+00:00Z'. Update serialize_datetime so UTC-aware datetimes convert to UTC and format with a single trailing 'Z' (replacing '+00:00'), while naive datetimes return dt.isoformat() without 'Z'."
+  },
+  "flask_config_from_envvar_prefix": {
+    "instance_id": "flask_config_from_envvar_prefix",
+    "repo": "pallets/flask",
+    "base_commit": "HEAD",
+    "problem_statement": "In flask_config/config.py, load_prefixed_env(env, prefix='FLASK') uses key.replace(f'{prefix}_', '') which corrupts keys that contain the prefix substring again later in the variable name, and fails to fall back to the raw string when json.loads fails on unquoted strings. Fix load_prefixed_env to strip only the leading f'{prefix}_' prefix and fall back to the raw string value on json.JSONDecodeError."
+  },
+  "requests_cookiejar_domain_dot_match": {
+    "instance_id": "requests_cookiejar_domain_dot_match",
+    "repo": "psf/requests",
+    "base_commit": "HEAD",
+    "problem_statement": "In requests_cookies/jar.py, CookieJar.get_for_host(host) checks host.endswith(cookie_domain), which falsely matches 'badexample.com' against a cookie domain 'example.com' and fails to match bare 'example.com' against a leading-dot cookie domain '.example.com'. Fix get_for_host so a cookie domain (with optional leading dot) matches only the exact domain or a true dot-separated subdomain."
+  },
+  "requests_auth_netrc_default_machine": {
+    "instance_id": "requests_auth_netrc_default_machine",
+    "repo": "psf/requests",
+    "base_commit": "HEAD",
+    "problem_statement": "In requests_auth/netrc_auth.py, get_netrc_login(url, netrc_hosts) uses parsed.netloc directly without stripping the ':port' suffix, and does not fall back to the 'default' key in netrc_hosts when the host is not explicitly listed. Update get_netrc_login to strip ':port' from netloc and fall back to netrc_hosts.get('default')."
+  },
+  "pytest_approx_nan_comparison": {
+    "instance_id": "pytest_approx_nan_comparison",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_approx/approx.py, ApproxScalar.__eq__(actual) fails when comparing float('nan') with nan_ok=True and when comparing infinite values (since abs(inf) * rel is inf, making -inf == ApproxScalar(inf) evaluate inf <= inf as True, and inf - inf is nan). Update ApproxScalar.__eq__ so NaN values return self.nan_ok when both are NaN, and infinite values return actual == self.expected."
+  },
+  "pytest_mark_parametrize_duplicate_ids": {
+    "instance_id": "pytest_mark_parametrize_duplicate_ids",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_param/ids.py, make_parametrize_ids(values, idfn=None) generates identical string IDs when two parameter values map to the same base ID (e.g. 'a' and 'a', or two objects where idfn returns the same name). Update make_parametrize_ids so that when a generated ID duplicates any earlier ID, it appends f'_{idx}' (where idx is the 0-based parameter position)."
+  },
+  "pytest_monkeypatch_setenv_undo_chain": {
+    "instance_id": "pytest_monkeypatch_setenv_undo_chain",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_mp/monkeypatch.py, MonkeyPatch.setenv(name, val) appends (name, self.env.get(name)) to self._saved_env and undo() iterates in forward order instead of reverse order, causing multiple setenv calls on the same variable to restore the intermediate value instead of the original value. Fix undo() to iterate in reversed order and clear self._saved_env."
+  },
+  "pytest_caplog_level_context_restore": {
+    "instance_id": "pytest_caplog_level_context_restore",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_caplog/caplog.py, LogCapture.at_level(level) sets self.logger.level = level before yielding and restores old_level after yield without a try/finally block. When an exception is raised inside the 'with caplog.at_level(...):' block, self.logger.level remains stuck at the temporary level. Wrap yield in try/finally so old_level is always restored."
+  },
+  "pytest_nodeid_normpath_windows_sep": {
+    "instance_id": "pytest_nodeid_normpath_windows_sep",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_nodes/nodeid.py, normalize_nodeid(nodeid) calls nodeid.replace('\\\\', '/') on the entire nodeid string, which corrupts backslash characters inside parameterized test IDs after '::' (e.g. 'tests\\\\test_a.py::test_fn[a\\\\b]'). Update normalize_nodeid to replace '\\\\' with '/' only in the file path portion before the first '::'."
+  },
+  "pylint_unused_variable_underscore_prefix": {
+    "instance_id": "pylint_unused_variable_underscore_prefix",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_vars/unused.py, find_unused_variables(code) reports assigned local variables that are never loaded, but fails to ignore dummy/unused variables whose names start with '_' (such as '_' or '_unused'). Update find_unused_variables to exclude any variable name starting with '_'."
+  },
+  "pylint_dangerous_default_value_call": {
+    "instance_id": "pylint_dangerous_default_value_call",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_defaults/checker.py, find_dangerous_defaults(code) checks function default arguments for ast.List, ast.Dict, and ast.Set literals, but misses call expressions like list(), dict(), and set(). Update _is_mutable_default to also flag ast.Call nodes where node.func is an ast.Name with id in {'list', 'dict', 'set'}."
+  },
+  "pylint_unreachable_code_after_terminator": {
+    "instance_id": "pylint_unreachable_code_after_terminator",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_flow/unreachable.py, find_unreachable_lines(code) checks only ast.Return and ast.Raise as block terminators, missing unreachable statements that follow ast.Break or ast.Continue inside loop bodies. UpdateTERMINATORS to include ast.Break and ast.Continue and recursively check loop body lists."
+  },
+  "pylint_missing_return_doc_generator": {
+    "instance_id": "pylint_missing_return_doc_generator",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_doc/return_doc.py, needs_return_doc(func_code) returns False when a generator function has a bare 'return' statement alongside 'yield <val>', or misses functions that yield values without any return statement. Update needs_return_doc so it returns True if the function contains any ast.Yield/ast.YieldFrom or any ast.Return with a non-None value."
+  },
+  "sphinx_intersphinx_inventory_placeholder": {
+    "instance_id": "sphinx_intersphinx_inventory_placeholder",
+    "repo": "sphinx-doc/sphinx",
+    "base_commit": "HEAD",
+    "problem_statement": "In sphinx_intersphinx/inventory.py, resolve_uri(base_uri, uri_template, obj_name) joins base_uri and uri_template without expanding the Sphinx inventory '$' placeholder. In Sphinx objects.inv files, a '$' in uri_template stands for obj_name (e.g. 'library/functions.html#$' -> 'library/functions.html#len'). Update resolve_uri to replace '$' in uri_template with obj_name."
+  },
+  "sphinx_pycode_ast_unparse_single_tuple": {
+    "instance_id": "sphinx_pycode_ast_unparse_single_tuple",
+    "repo": "sphinx-doc/sphinx",
+    "base_commit": "HEAD",
+    "problem_statement": "In sphinx_pycode/unparse.py, format_default_ast(node) formats ast.Tuple nodes as '(' + ', '.join(...) + ')', which formats a 1-element tuple `(1,)` as `(1)` (a parenthesized int rather than a tuple). Fix format_default_ast so 1-element ast.Tuple nodes include the trailing comma `({elem},)` while empty and multi-element tuples format as `()` and `(a, b)`."
+  },
+  "sympy_rational_floor_ceiling_neg": {
+    "instance_id": "sympy_rational_floor_ceiling_neg",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_rat/rational.py, Rational(p, q) fails to normalize negative denominators q < 0 during initialization and uses int(p / q) (truncation toward zero) instead of mathematical floor and ceiling in floor() and ceiling(). Fix Rational.__init__, floor(), and ceiling() so negative denominators are normalized (q > 0) and floor/ceiling return exact floor(p/q) and ceil(p/q) for negative fractions."
+  },
+  "sympy_simplify_trig_pythagorean": {
+    "instance_id": "sympy_simplify_trig_pythagorean",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_trig/trigsimp.py, simplify_pythagorean(terms) simplifies {'sin2': 1, 'cos2': 1} to {'const': 1}, but only when the coefficients of 'sin2' and 'cos2' are both 1. When terms have matching non-unit coefficients c*sin^2(x) + c*cos^2(x) + const, it fails to fold them into const + c. Update simplify_pythagorean so whenever terms.get('sin2', 0) == terms.get('cos2', 0) != 0, their shared coefficient c is added to 'const' and both 'sin2' and 'cos2' are removed."
+  },
+  "sympy_series_taylor_shift_eval": {
+    "instance_id": "sympy_series_taylor_shift_eval",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_series/taylor.py, eval_taylor(derivs, x0, x) evaluates a Taylor polynomial from derivative values f^(k)(x0) at expansion point x0, but uses (x ** k) instead of ((x - x0) ** k) and omits math.factorial(k) in the denominator. Fix eval_taylor to compute sum(d * ((x - x0) ** k) / math.factorial(k))."
+  },
+  "sympy_solvers_linear_system_singular": {
+    "instance_id": "sympy_solvers_linear_system_singular",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_linsolve/solver.py, solve_2x2(a1, b1, c1, a2, b2, c2) returns None whenever the determinant det == 0, failing to distinguish an inconsistent system (no solutions, return None) from a dependent system with infinitely many solutions (where a1*c2 == a2*c1 and b1*c2 == b2*c1, which must raise ValueError('Infinite solutions')). Update solve_2x2 accordingly."
+  },
+  "sklearn_standard_scaler_zero_variance": {
+    "instance_id": "sklearn_standard_scaler_zero_variance",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_scaler/scaler.py, StandardScaler.fit_transform(X) divides by standard deviation std without guarding against constant features where std == 0.0, raising ZeroDivisionError. Following scikit-learn's _handle_zeros_in_scale, replace std == 0.0 with 1.0 so constant columns are centered to 0.0 without division by zero."
+  },
+  "sklearn_onehot_encoder_handle_unknown": {
+    "instance_id": "sklearn_onehot_encoder_handle_unknown",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_encode/onehot.py, OneHotEncoder.transform(values) raises ValueError on unknown categories even when self.handle_unknown == 'ignore'. Update transform() so that when handle_unknown == 'ignore', an unseen category is encoded as a vector of all zeros `[0] * len(self.categories_)`."
+  },
+  "sklearn_kfold_remainder_distribution": {
+    "instance_id": "sklearn_kfold_remainder_distribution",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_split/kfold.py, kfold_indices(n_samples, n_splits) places all n_samples % n_splits remainder items into the last fold instead of distributing 1 extra sample to each of the first (n_samples % n_splits) folds as scikit-learn's KFold does. Fix kfold_indices so the first `n_samples % n_splits` folds have size `n_samples // n_splits + 1` and the remaining folds have size `n_samples // n_splits`."
+  },
+  "sklearn_impute_most_frequent_ties": {
+    "instance_id": "sklearn_impute_most_frequent_ties",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_impute/imputer.py, most_frequent_impute(values) counts None values as a valid category and breaks frequency ties by insertion order instead of returning the smallest value (`min` by value among the tied highest-frequency non-None items). Fix most_frequent_impute to ignore None when counting and break ties by selecting the smallest value."
+  },
+  "matplotlib_colors_to_rgba_hex_alpha": {
+    "instance_id": "matplotlib_colors_to_rgba_hex_alpha",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_colors/colors.py, hex_to_rgba(hex_str, alpha=None) only supports 6-digit '#RRGGBB' strings, failing on 8-digit '#RRGGBBAA' strings and 3/4-digit shorthand ('#RGB', '#RGBA'). Update hex_to_rgba to expand 3/4-digit hex codes by doubling each nibble, parse the optional 4th alpha byte from 8-digit hex, and let an explicit alpha != None override it."
+  },
+  "matplotlib_ticker_Degenerate_locator": {
+    "instance_id": "matplotlib_ticker_Degenerate_locator",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_ticker/locator.py, linear_ticks(vmin, vmax, nbins=5) computes step = (vmax - vmin) / nbins, which produces step == 0.0 and duplicate identical tick values when vmin == vmax (singular axis limits), and fails to swap limits when vmin > vmax. Update linear_ticks to swap vmin, vmax if vmin > vmax, and expand singular intervals (vmin == vmax) to (vmin - 1.0, vmax + 1.0)."
+  },
+  "matplotlib_axes_bar_label_negative_offset": {
+    "instance_id": "matplotlib_axes_bar_label_negative_offset",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_bars/bar_label.py, bar_label_positions(heights, padding=3.0) always adds +padding to each bar height h, placing labels inside negative bars instead of below their bottom edge. Update bar_label_positions so negative bars (h < 0) place the label at h - padding while non-negative bars (h >= 0) use h + padding."
+  },
+  "matplotlib_bbox_union_ignore_null": {
+    "instance_id": "matplotlib_bbox_union_ignore_null",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_transforms/bbox.py, bbox_union(bboxes) computes the bounding box union (min x0, min y0, max x1, max y1) across all boxes, including degenerate zero-size boxes where x0 == x1 and y0 == y1 (such as an empty artist at (0, 0, 0, 0)), which stretches the union to the origin. Update bbox_union to filter out degenerate boxes where x0 == x1 and y0 == y1 unless all input boxes are degenerate."
+  },
+  "xarray_coords_merge_conflict_override": {
+    "instance_id": "xarray_coords_merge_conflict_override",
+    "repo": "pydata/xarray",
+    "base_commit": "HEAD",
+    "problem_statement": "In xarray_merge/coords.py, merge_coords(left, right, compat='no_conflicts') overwrites left keys with right keys unconditionally instead of raising ValueError('Conflict in coord') when a shared key has different values under compat='no_conflicts', and fails to keep left[k] under compat='override'. Update merge_coords to enforce both compat modes."
+  },
+  "xarray_sel_nearest_tolerance": {
+    "instance_id": "xarray_sel_nearest_tolerance",
+    "repo": "pydata/xarray",
+    "base_commit": "HEAD",
+    "problem_statement": "In xarray_index/sel.py, sel_nearest(coords, target, tolerance=None) returns the index of the closest coordinate without checking whether abs(coords[best_idx] - target) > tolerance when tolerance is not None. Update sel_nearest to raise KeyError(f'No coordinate within tolerance {tolerance}') if the minimum distance exceeds tolerance."
+  },
+  "xarray_groupby_bins_include_lowest": {
+    "instance_id": "xarray_groupby_bins_include_lowest",
+    "repo": "pydata/xarray",
+    "base_commit": "HEAD",
+    "problem_statement": "In xarray_bins/groupby.py, digitize_bins(values, edges, include_lowest=False) checks only edges[i] < v <= edges[i+1] for right-closed bins, assigning -1 to values equal to the leftmost edge edges[0] even when include_lowest=True. Update digitize_bins so v == edges[0] maps to bin 0 when include_lowest=True."
+  },
+  "xarray_nanmean_all_nan_slice": {
+    "instance_id": "xarray_nanmean_all_nan_slice",
+    "repo": "pydata/xarray",
+    "base_commit": "HEAD",
+    "problem_statement": "In xarray_nanops/nanreduce.py, nanmean(values) filters out math.isnan(v) values and divides sum(valid) by len(valid), which raises ZeroDivisionError when all elements in values are NaN (or values is empty). Update nanmean to return float('nan') when valid is empty."
+  },
+  "astropy_units_quantity_equivalencies": {
+    "instance_id": "astropy_units_quantity_equivalencies",
+    "repo": "astropy/astropy",
+    "base_commit": "HEAD",
+    "problem_statement": "In astropy_units/equiv.py, convert_with_equivalencies(val, from_unit, to_unit, equivalencies) checks each tuple (u1, u2, forward_fn, backward_fn) only in the forward direction (u1 == from_unit and u2 == to_unit), failing when the caller converts in the reverse direction (u2 == from_unit and u1 == to_unit). Update convert_with_equivalencies to apply backward_fn(val) when matching in the reverse direction."
+  },
+  "astropy_table_join_masked_keys": {
+    "instance_id": "astropy_table_join_masked_keys",
+    "repo": "astropy/astropy",
+    "base_commit": "HEAD",
+    "problem_statement": "In astropy_table/join.py, inner_join(left_rows, right_rows, key) joins rows where r1[key] == r2[key], which erroneously joins masked/missing rows where r1[key] is None and r2[key] is None. Update inner_join so rows with None in the join key are never matched."
+  },
+  "astropy_time_iso_leap_second_parse": {
+    "instance_id": "astropy_time_iso_leap_second_parse",
+    "repo": "astropy/astropy",
+    "base_commit": "HEAD",
+    "problem_statement": "In astropy_time/iso.py, parse_iso_utc(ts) passes the parsed (Y, M, D, h, m, s) directly to datetime(Y, M, D, h, m, s), which raises ValueError('second must be in 0..59') on UTC leap-second timestamps ending in ':60' (such as '2016-12-31T23:59:60'). Update parse_iso_utc so when s == 60, it constructs datetime with s=59 and adds timedelta(seconds=1)."
+  },
+  "astropy_fits_header_card_hierarch": {
+    "instance_id": "astropy_fits_header_card_hierarch",
+    "repo": "astropy/astropy",
+    "base_commit": "HEAD",
+    "problem_statement": "In astropy_fits/card.py, format_card(keyword, value) truncates keyword[:8] instead of using the ESO HIERARCH convention when len(keyword) > 8 or keyword contains spaces. Update format_card so if len(keyword) > 8 or ' ' in keyword, it formats as f'HIERARCH {keyword.upper()} = {value}'."
+  },
+  "seaborn_categorical_dodge_offset": {
+    "instance_id": "seaborn_categorical_dodge_offset",
+    "repo": "mwaskom/seaborn",
+    "base_commit": "HEAD",
+    "problem_statement": "In seaborn_cat/dodge.py, dodge_offsets(n_levels, width=0.8) computes step = width / (n_levels - 1), which raises ZeroDivisionError when n_levels == 1 and uses width / (n_levels - 1) instead of seaborn's sub-bar center formula where each level occupies width / n_levels centered symmetrically around 0.0: `[round((i - (n_levels - 1) / 2) * (width / n_levels), 6) for i in range(n_levels)]`. Fix dodge_offsets to use this formula."
+  },
+  "seaborn_palettes_blend_single_color": {
+    "instance_id": "seaborn_palettes_blend_single_color",
+    "repo": "mwaskom/seaborn",
+    "base_commit": "HEAD",
+    "problem_statement": "In seaborn_palettes/blend.py, blend_rgb(c1, c2, n_colors) divides by (n_colors - 1) to interpolate RGB tuples between c1 and c2, raising ZeroDivisionError when n_colors == 1 and returning incorrect values for n_colors <= 0. Update blend_rgb to return [] when n_colors <= 0 and [c1] when n_colors == 1."
+  },
+  "seaborn_utils_despine_trim_visible": {
+    "instance_id": "seaborn_utils_despine_trim_visible",
+    "repo": "mwaskom/seaborn",
+    "base_commit": "HEAD",
+    "problem_statement": "In seaborn_utils/despine.py, despine(spines, data_bounds, trim=False) sets bounds=data_bounds on all spines when trim=True, including spines that have visible=False. Update despine so when trim=True, only spines with s['visible'] == True have their 'bounds' set to data_bounds."
+  },
+  "seaborn_distributions_fd_zero_iqr": {
+    "instance_id": "seaborn_distributions_fd_zero_iqr",
+    "repo": "mwaskom/seaborn",
+    "base_commit": "HEAD",
+    "problem_statement": "In seaborn_dist/bins.py, freedman_diaconis_bins(data) computes bin width h = 2 * iqr / (n ** (1/3)) and divides the data range by h, raising ZeroDivisionError when >= 50% of values are identical so iqr == 0.0. Following seaborn/numpy, fall back to Sturges' rule `math.ceil(math.log2(n) + 1)` when iqr == 0.0."
+  },
+  "django_http_parse_cookie_empty_key": {
+    "instance_id": "django_http_parse_cookie_empty_key",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_http/cookies.py, parse_cookie(cookie_string) splits on ';' and '=' but inserts an empty-key entry {'': value} when a cookie segment starts with '=' (such as '=value') or has whitespace around an empty key. Update parse_cookie to ignore segments whose stripped key is empty."
+  },
+  "django_multivaluedict_getlist_default": {
+    "instance_id": "django_multivaluedict_getlist_default",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_datastructures/multivalue.py, MultiValueDict.getlist(key, default=None) always returns [] when key is missing, ignoring a caller-provided default list when default is not None. Return default if key is not present and default is not None, otherwise return []."
+  },
+  "django_html_conditional_escape_safe": {
+    "instance_id": "django_html_conditional_escape_safe",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_html/escape.py, conditional_escape(text) escapes all inputs using html.escape(str(text)) without checking whether text implements the __html__() safe-string protocol. Update conditional_escape to return text.__html__() when hasattr(text, '__html__')."
+  },
+  "django_validators_domain_trailing_dot": {
+    "instance_id": "django_validators_domain_trailing_dot",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_validators/domain.py, is_valid_domain(value) rejects fully qualified domain names ending with a single trailing dot (e.g. 'example.com.'). Strip at most one trailing dot from value (if len(value) > 1) before splitting and validating labels."
+  },
+  "django_utils_encoding_iri_to_uri_ascii": {
+    "instance_id": "django_utils_encoding_iri_to_uri_ascii",
+    "repo": "django/django",
+    "base_commit": "HEAD",
+    "problem_statement": "In django_encoding/uri.py, iri_to_uri(iri) percent-encodes reserved URI characters like '/', '?', ':', '=', and '&' because it calls urllib.parse.quote(iri) with default safe='/'. Preserve RFC 3987 ASCII URI characters by passing safe=\"/:?#[]@!$&'()*+,;=%~-\"."
+  },
+  "flask_config_from_prefixed_env_parse": {
+    "instance_id": "flask_config_from_prefixed_env_parse",
+    "repo": "pallets/flask",
+    "base_commit": "HEAD",
+    "problem_statement": "In flask_config/env.py, load_prefixed_env(env, prefix='FLASK') extracts environment variables starting with f'{prefix}_' but stores raw string values without attempting json.loads() conversion for booleans, numbers, or lists. Parse each value with json.loads and fall back to the raw string on ValueError."
+  },
+  "flask_helpers_get_debug_flag_falsy": {
+    "instance_id": "flask_helpers_get_debug_flag_falsy",
+    "repo": "pallets/flask",
+    "base_commit": "HEAD",
+    "problem_statement": "In flask_helpers/debug.py, get_debug_flag(val) uses bool(val) which evaluates string values like '0', 'false', 'False', and 'no' as True. Return False when val.strip().lower() is in ('', '0', 'false', 'no')."
+  },
+  "requests_auth_basic_latin1_encode": {
+    "instance_id": "requests_auth_basic_latin1_encode",
+    "repo": "psf/requests",
+    "base_commit": "HEAD",
+    "problem_statement": "In requests_auth/basic.py, basic_auth_header(username, password) encodes credentials with 'ascii' instead of 'latin1', raising UnicodeEncodeError on Latin-1 characters (e.g. 'p\u00e4ss') allowed by HTTP Basic Auth. Encode username and password using 'latin1'."
+  },
+  "requests_netrc_host_port_strip": {
+    "instance_id": "requests_netrc_host_port_strip",
+    "repo": "psf/requests",
+    "base_commit": "HEAD",
+    "problem_statement": "In requests_netrc/auth.py, get_netrc_login(url, netrc_hosts) uses parsed.netloc directly as the lookup key instead of stripping the ':port' suffix (or using parsed.hostname), failing to find credentials when url includes an explicit port like 'http://example.com:8080/api'."
+  },
+  "requests_cookies_domain_match_boundary": {
+    "instance_id": "requests_cookies_domain_match_boundary",
+    "repo": "psf/requests",
+    "base_commit": "HEAD",
+    "problem_statement": "In requests_cookies/domain.py, cookie_domain_matches(request_host, cookie_domain) checks request_host.endswith(target), which falsely matches 'badexample.com' against cookie_domain='example.com'. Require either an exact match (request_host == target) or a dot boundary (request_host.endswith('.' + target))."
+  },
+  "pytest_approx_bool_rejection": {
+    "instance_id": "pytest_approx_bool_rejection",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_approx/compare.py, approx_equal(actual, expected, tol=1e-6) treats booleans as numbers because isinstance(True, (int, float)) is True in Python, causing approx_equal(True, 1.0) to return True. Return False if either actual or expected is a bool (unless both are bool and actual == expected)."
+  },
+  "pytest_nodeid_normpath_brackets": {
+    "instance_id": "pytest_nodeid_normpath_brackets",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_nodes/nodeid.py, normalize_nodeid(nodeid) replaces Windows backslashes '\\\\' with '/' across the entire string, corrupting escaped characters inside parametrize brackets (e.g. 'tests\\\\test_a.py::test_fn[a\\\\nb]'). Only replace '\\\\' with '/' in the file path prefix before '::' (or before '[' if '::' is absent)."
+  },
+  "pytest_monkeypatch_delenv_raising": {
+    "instance_id": "pytest_monkeypatch_delenv_raising",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_monkeypatch/env.py, delenv(env_dict, name, raising=True) calls env_dict.pop(name) unconditionally, raising KeyError when name is absent even if raising=False. Only raise KeyError when raising=True and name is not in env_dict."
+  },
+  "pytest_importorskip_minversion_tuple": {
+    "instance_id": "pytest_importorskip_minversion_tuple",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_outcomes/version.py, check_minversion(actual, minimum) compares version strings lexicographically (actual >= minimum), which evaluates '1.10.0' >= '1.2.0' as False. Parse dot-separated integer components into tuples before comparing."
+  },
+  "pytest_recwarn_pop_subclass_match": {
+    "instance_id": "pytest_recwarn_pop_subclass_match",
+    "repo": "pytest-dev/pytest",
+    "base_commit": "HEAD",
+    "problem_statement": "In pytest_warnings/recorder.py, pop_warning(recorded, expected_cls) checks type(w) is expected_cls instead of issubclass(type(w), expected_cls), failing to match warning subclasses (such as DeprecationWarning when popping Warning). Use isinstance(w, expected_cls)."
+  },
+  "sympy_rational_zero_canonical": {
+    "instance_id": "sympy_rational_zero_canonical",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_core/rational.py, canonical_rational(p, q) divides by math.gcd(p, q) and normalizes negative denominators, but when p == 0 and q < 0 (e.g. canonical_rational(0, -5)) math.gcd(0, -5) is 5 and the negative sign check leaves q == 1 or fails when p == 0 to return (0, 1) before sign flips. Ensure p == 0 always returns (0, 1) and q == 0 raises ZeroDivisionError."
+  },
+  "sympy_ntheory_isprime_two_and_one": {
+    "instance_id": "sympy_ntheory_isprime_two_and_one",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_ntheory/primality.py, is_prime(n) checks n % 2 == 0 before checking n == 2, returning False for 2, and returns True for n == 1 because the condition checks n < 1 instead of n < 2. Fix is_prime(n) so 1 is False and 2 is True."
+  },
+  "sympy_combinatorics_perm_parity": {
+    "instance_id": "sympy_combinatorics_perm_parity",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_comb/permutations.py, permutation_parity(perm) counts inversions (i < j and perm[i] > perm[j]) and returns the raw inversion count instead of inversion_count % 2 (0 for even, 1 for odd). Return total % 2."
+  },
+  "sympy_matrices_trace_non_square": {
+    "instance_id": "sympy_matrices_trace_non_square",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_matrices/trace.py, matrix_trace(rows) sums diagonal elements rows[i][i] without checking if the matrix is square, silently returning a partial sum or IndexError on non-square matrices. Raise ValueError('Matrix must be square') if any row length differs from len(rows)."
+  },
+  "sympy_polys_degree_leading_zeros": {
+    "instance_id": "sympy_polys_degree_leading_zeros",
+    "repo": "sympy/sympy",
+    "base_commit": "HEAD",
+    "problem_statement": "In sympy_polys/degree.py, poly_degree(coeffs) takes coefficients in descending power order (e.g. [1, 0, 2] for x^2 + 2) and returns len(coeffs) - 1 without stripping leading zero coefficients, returning 2 instead of 1 for [0, 3, 1] and 0 instead of -1 for [0, 0]. Strip leading zeros and return -1 if all coefficients are zero."
+  },
+  "sklearn_metrics_r2_constant_target": {
+    "instance_id": "sklearn_metrics_r2_constant_target",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_metrics/regression.py, r2_score(y_true, y_pred) raises ZeroDivisionError when y_true is constant (ss_tot == 0.0). When ss_tot == 0.0, return 1.0 if ss_res == 0.0 else 0.0."
+  },
+  "sklearn_preprocessing_minmax_zero_range": {
+    "instance_id": "sklearn_preprocessing_minmax_zero_range",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_prep/minmax.py, minmax_scale(values) raises ZeroDivisionError when all elements in values are equal (vmax == vmin). Return [0.0 for _ in values] when vmax == vmin."
+  },
+  "sklearn_impute_simple_median_even": {
+    "instance_id": "sklearn_impute_simple_median_even",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_impute/median.py, impute_median(values) computes the median of non-None values using valid[n // 2] even when n is even, instead of averaging the two middle values (valid[n // 2 - 1] + valid[n // 2]) / 2.0. Fix even-length median calculation."
+  },
+  "sklearn_stop_words_case_normalize": {
+    "instance_id": "sklearn_stop_words_case_normalize",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_text/stopwords.py, filter_stop_words(tokens, stop_words, lowercase=True) lowercases each token when lowercase=True, but checks membership against the un-normalized stop_words set, failing to filter capitalized stop words like 'The' or 'AND'. Normalize stop_words to lowercase when lowercase=True."
+  },
+  "sklearn_model_selection_train_test_empty": {
+    "instance_id": "sklearn_model_selection_train_test_empty",
+    "repo": "scikit-learn/scikit-learn",
+    "base_commit": "HEAD",
+    "problem_statement": "In sklearn_split/split.py, split_sizes(n_samples, test_size=0.25) uses int(n_samples * test_size), which rounds down to n_test == 0 on small datasets (e.g. n_samples=3, test_size=0.25) or raises no error when test_size <= 0 or >= 1. Use math.ceil(n_samples * test_size) and raise ValueError if not (0 < test_size < 1)."
+  },
+  "matplotlib_colors_to_hex_alpha": {
+    "instance_id": "matplotlib_colors_to_hex_alpha",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_colors/hex.py, to_hex(color, keep_alpha=False) converts normalized RGBA floats (0.0..1.0) to a hex string '#rrggbb' but ignores keep_alpha=True. Append the 2-digit hex alpha channel ('#rrggbbaa', defaulting alpha to 1.0 if len(color) == 3) when keep_alpha=True."
+  },
+  "matplotlib_dates_days_to_seconds_round": {
+    "instance_id": "matplotlib_dates_days_to_seconds_round",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_dates/convert.py, days_to_seconds(days) converts floating point days to integer seconds using int(days * 86400), which truncates 29/86400 day (28.999999999999996s in IEEE-754) to 28 instead of 29. Use round(days * 86400)."
+  },
+  "matplotlib_cbook_linestyle_already_named": {
+    "instance_id": "matplotlib_cbook_linestyle_already_named",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_cbook/linestyle.py, resolve_linestyle(ls) looks up ls in SHORT_TO_LONG ('-', '--', '-.', ':') and raises ValueError when ls is already a valid full linestyle name ('solid', 'dashed', 'dashdot', 'dotted'). Accept both short codes and full names."
+  },
+  "matplotlib_axes_xlim_preserve_inverted": {
+    "instance_id": "matplotlib_axes_xlim_preserve_inverted",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_axes/limits.py, normalize_xlim(left, right) sorts (left, right) into ascending order using (min(left, right), max(left, right)), which destroys intentionally inverted axes like (10.0, 0.0). Preserve the caller's (left, right) order, and expand singular limits where left == right by (-0.5, +0.5) (or (-0.05 * abs(left), +0.05 * abs(left)) when left != 0)."
+  },
+  "matplotlib_transforms_bbox_union_empty": {
+    "instance_id": "matplotlib_transforms_bbox_union_empty",
+    "repo": "matplotlib/matplotlib",
+    "base_commit": "HEAD",
+    "problem_statement": "In mpl_transforms/bbox.py, bbox_union(bboxes) computes (min_x0, min_y0, max_x1, max_y1) across a list of (x0, y0, x1, y1) tuples without filtering out degenerate zero-size bboxes where x0 == x1 or y0 == y1, pulling the union toward (0, 0, 0, 0). Ignorebboxes where x0 == x1 or y0 == y1 (returning None if none remain)."
+  },
+  "sphinx_util_strip_ansi_compound": {
+    "instance_id": "sphinx_util_strip_ansi_compound",
+    "repo": "sphinx-doc/sphinx",
+    "base_commit": "HEAD",
+    "problem_statement": "In sphinx_util/ansi.py, strip_ansi_codes(text) uses regex r'\\x1b\\[\\d+m', which fails to strip compound semicolon ANSI SGR sequences like '\\x1b[31;1m' or empty reset '\\x1b[m'. Update the pattern to r'\\x1b\\[[0-9;]*m'."
+  },
+  "sphinx_roles_pep_reference_anchor": {
+    "instance_id": "sphinx_roles_pep_reference_anchor",
+    "repo": "sphinx-doc/sphinx",
+    "base_commit": "HEAD",
+    "problem_statement": "In sphinx_roles/pep.py, make_pep_url(target) calls int(target) directly, raising ValueError when target includes a section anchor like '8#constants'. Split on '#' first and append f'#{anchor}' to the formatted PEP URL."
+  },
+  "sphinx_autodoc_mock_dunder_getattr": {
+    "instance_id": "sphinx_autodoc_mock_dunder_getattr",
+    "repo": "sphinx-doc/sphinx",
+    "base_commit": "HEAD",
+    "problem_statement": "In sphinx_mock/mock.py, MockObject.__getattr__(name) returns a new MockObject for all attributes, including special dunder attributes like '__wrapped__' or '__deepcopy__', which causes inspect.unwrap() to loop infinitely. Raise AttributeError when name starts and ends with '__'."
+  },
+  "sphinx_domains_split_arglist_nested": {
+    "instance_id": "sphinx_domains_split_arglist_nested",
+    "repo": "sphinx-doc/sphinx",
+    "base_commit": "HEAD",
+    "problem_statement": "In sphinx_domains/arglist.py, split_arglist(arglist) splits on ',' without tracking bracket/parenthesis depth, breaking annotations or defaults like 'x: tuple[int, str], y = (1, 2)'. Only split on ',' when nesting depth of '([])' is 0."
+  },
+  "sphinx_html_relpath_preserve_anchor": {
+    "instance_id": "sphinx_html_relpath_preserve_anchor",
+    "repo": "sphinx-doc/sphinx",
+    "base_commit": "HEAD",
+    "problem_statement": "In sphinx_html/uris.py, relative_uri(base_doc, target_uri) computes os.path.relpath(target_uri, os.path.dirname(base_doc)) without separating '#anchor' first, and returns 'page.html#sec' instead of '#sec' when base_doc and target_uri refer to the same document path. Return f'#{anchor}' when path == base_doc, and otherwise append f'#{anchor}' to the relative path."
+  },
+  "pylint_variables_ignored_argument_prefix": {
+    "instance_id": "pylint_variables_ignored_argument_prefix",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_vars/unused.py, is_ignored_arg(name) only checks name == '_', failing to ignore arguments starting with '_' (e.g. '_unused') or starting with 'dummy_'. Return True when name.startswith('_') or name.startswith('dummy_')."
+  },
+  "pylint_format_line_length_ignore_long_url": {
+    "instance_id": "pylint_format_line_length_ignore_long_url",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_format/line_length.py, is_line_too_long(line, max_len=80) flags lines exceeding max_len even when the line (after optional leading '#' and whitespace) is a single unbroken http:// or https:// URL. Exempt lines whose stripped content (with leading '#' stripped) is a single token starting with 'http://' or 'https://'."
+  },
+  "pylint_config_csv_option_strip_empty": {
+    "instance_id": "pylint_config_csv_option_strip_empty",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_config/options.py, parse_csv_option(raw) splits on ',' and strips items without filtering out empty strings, returning [''] on an empty string '' or ['a', ''] on trailing commas. Filter out empty items after stripping."
+  },
+  "pylint_typecheck_callable_inherited": {
+    "instance_id": "pylint_typecheck_callable_inherited",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_typecheck/callable_check.py, is_callable_instance(cls_methods, base_method_sets) only checks '__call__' in cls_methods and ignores inherited methods in base_method_sets. Return True if '__call__' is in cls_methods or in any set in base_method_sets."
+  },
+  "pylint_classes_valid_dunder_exit_args": {
+    "instance_id": "pylint_classes_valid_dunder_exit_args",
+    "repo": "pylint-dev/pylint",
+    "base_commit": "HEAD",
+    "problem_statement": "In pylint_classes/special_methods.py, check_exit_signature(args) requires len(args) == 4 (self, exc_type, exc_val, exc_tb) and rejects valid '__exit__(self, *args)' variadic signatures where '*' is present in args. Accept signatures of length 4 OR any signature containing a '*args' variadic parameter (an element starting with '*' but not '**') after 'self'."
+  },
+  "xarray_merge_attrs_no_conflicts": {
+    "instance_id": "xarray_merge_attrs_no_conflicts",
+    "repo": "pydata/xarray",
+    "base_commit": "HEAD",
+    "problem_statement": "In xarray_merge/attrs.py, merge_attrs(attrs_list) overwrites conflicting keys silently instead of raising ValueError('Conflicting attribute') when the same key maps to different values across dictionaries in attrs_list. Raise ValueError if k is already in merged and merged[k] != v."
+  },
+  "xarray_coding_timedelta_preserve_none": {
+    "instance_id": "xarray_coding_timedelta_preserve_none",
+    "repo": "pydata/xarray",
+    "base_commit": "HEAD",
+    "problem_statement": "In xarray_coding/timedeltas.py, decode_timedeltas(values, unit) multiplies every element x by SCALE[unit], raising TypeError when values contains None missing entries. Preserve None entries as None in the returned list."
+  },
+  "xarray_formatting_maybe_truncate_exact": {
+    "instance_id": "xarray_formatting_maybe_truncate_exact",
+    "repo": "pydata/xarray",
+    "base_commit": "HEAD",
+    "problem_statement": "In xarray_fmt/truncate.py, maybe_truncate(text, maxlen=20) uses len(text) >= maxlen instead of len(text) > maxlen, truncating strings whose length is exactly maxlen into maxlen - 3 chars plus '...'. Only truncate when len(text) > maxlen."
+  },
+  "astropy_io_ascii_strip_indented_comments": {
+    "instance_id": "astropy_io_ascii_strip_indented_comments",
+    "repo": "astropy/astropy",
+    "base_commit": "HEAD",
+    "problem_statement": "In astropy_ascii/reader.py, filter_data_lines(lines, comment='#') checks line.startswith(comment) before stripping leading whitespace, failing to ignore indented comment lines (e.g. '   # header') and whitespace-only blank lines. Strip whitespace and skip empty or comment-prefixed lines."
+  },
+  "astropy_modeling_bounding_box_nan": {
+    "instance_id": "astropy_modeling_bounding_box_nan",
+    "repo": "astropy/astropy",
+    "base_commit": "HEAD",
+    "problem_statement": "In astropy_modeling/bbox.py, validate_bounds(lower, upper) checks lower > upper to raise ValueError, which evaluates to False when either bound is float('nan'). Raise ValueError if math.isnan(lower) or math.isnan(upper) or lower > upper."
+  },
+  "seaborn_axisgrid_Bottom_row_labels": {
+    "instance_id": "seaborn_axisgrid_Bottom_row_labels",
+    "repo": "mwaskom/seaborn",
+    "base_commit": "HEAD",
+    "problem_statement": "In seaborn_grid/labels.py, visible_axes_labels(nrows, ncols, share_x=True, share_y=True) sets x_visible = (r == 0) instead of (r == nrows - 1) when share_x=True, making x-axis labels visible on the top row instead of the bottom row. Set x_visible to (not share_x) or (r == nrows - 1)."
+  },
+  "seaborn_scales_log_nonpositive_none": {
+    "instance_id": "seaborn_scales_log_nonpositive_none",
+    "repo": "mwaskom/seaborn",
+    "base_commit": "HEAD",
+    "problem_statement": "In seaborn_scales/log.py, log10_scale(values) calls math.log10(x) on every element, raising ValueError('math domain error') when x <= 0 or TypeError when x is None. Map None and values <= 0 to None."
+  },
+  "werkzeug_http_parse_age_negative": {
+    "instance_id": "werkzeug_http_parse_age_negative",
+    "repo": "pallets/werkzeug",
+    "base_commit": "HEAD",
+    "problem_statement": "In werkzeug_http/age.py, parse_age(value) converts an HTTP Age header string to int, but returns negative integers (e.g. -5) instead of None when the parsed age is < 0, and crashes with TypeError when value is None. Return None if value is None, cannot be parsed as int, or is < 0."
+  },
+  "werkzeug_datastructures_range_to_header": {
+    "instance_id": "werkzeug_datastructures_range_to_header",
+    "repo": "pallets/werkzeug",
+    "base_commit": "HEAD",
+    "problem_statement": "In werkzeug_range/byterange.py, format_byte_range(start, end) formats HTTP Range headers using inclusive end index f'bytes={start}-{end - 1}' when end is not None, but formats 'bytes=-None' instead of f'bytes=-{abs(start)}' when start < 0 (suffix byte-range spec, e.g. start=-500, end=None -> 'bytes=-500'). Fix suffix range formatting when start < 0 and end is None."
+  },
+  "werkzeug_security_safe_join_windows_drive": {
+    "instance_id": "werkzeug_security_safe_join_windows_drive",
+    "repo": "pallets/werkzeug",
+    "base_commit": "HEAD",
+    "problem_statement": "In werkzeug_sec/paths.py, safe_join(base, *paths) rejects '..' traversal and leading '/', but fails to reject Windows drive prefixes like 'C:foo' or backslashes '\\\\' in untrusted path segments. Return None if any segment contains '\\\\' or ':' or starts with '/' or has '..' path components."
+  }
+}

@@ -1,0 +1,10 @@
+diff --git a/sphinx_intersphinx/inventory.py b/sphinx_intersphinx/inventory.py
+index 1901d27..4e0095b 100644
+--- a/sphinx_intersphinx/inventory.py
++++ b/sphinx_intersphinx/inventory.py
+@@ -1,4 +1,4 @@
+ def resolve_uri(base_uri: str, uri_template: str, obj_name: str) -> str:
+     base = base_uri.rstrip("/")
+-    rel = uri_template.lstrip("/")
++    rel = uri_template.replace("$", obj_name).lstrip("/")
+     return f"{base}/{rel}"

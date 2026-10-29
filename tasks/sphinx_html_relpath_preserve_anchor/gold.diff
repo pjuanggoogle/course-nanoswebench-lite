@@ -1,0 +1,15 @@
+diff --git a/sphinx_html/uris.py b/sphinx_html/uris.py
+index 0edd013..52c0d73 100644
+--- a/sphinx_html/uris.py
++++ b/sphinx_html/uris.py
+@@ -1,5 +1,9 @@
+ import os
+ 
+ def relative_uri(base_doc: str, target_uri: str) -> str:
++    path, sep, anchor = target_uri.partition("#")
++    if path == base_doc:
++        return f"#{anchor}" if sep else ""
+     base_dir = os.path.dirname(base_doc) or "."
+-    return os.path.relpath(target_uri, base_dir)
++    rel = os.path.relpath(path, base_dir)
++    return f"{rel}#{anchor}" if sep else rel

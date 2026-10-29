@@ -1,0 +1,16 @@
+diff --git a/astropy_table/join.py b/astropy_table/join.py
+index ff8d700..0895866 100644
+--- a/astropy_table/join.py
++++ b/astropy_table/join.py
+@@ -1,7 +1,10 @@
+ def inner_join(left_rows: list[dict], right_rows: list[dict], key: str) -> list[dict]:
+     joined = []
+     for lrow in left_rows:
++        kval = lrow.get(key)
++        if kval is None:
++            continue
+         for rrow in right_rows:
+-            if lrow.get(key) == rrow.get(key):
++            if rrow.get(key) == kval:
+                 joined.append({**lrow, **rrow})
+     return joined

@@ -1,0 +1,11 @@
+diff --git a/sklearn_metrics/regression.py b/sklearn_metrics/regression.py
+index ff99d38..7b0fc9c 100644
+--- a/sklearn_metrics/regression.py
++++ b/sklearn_metrics/regression.py
+@@ -2,4 +2,6 @@ def r2_score(y_true: list[float], y_pred: list[float]) -> float:
+     mean_y = sum(y_true) / len(y_true)
+     ss_res = sum((t - p) ** 2 for t, p in zip(y_true, y_pred))
+     ss_tot = sum((t - mean_y) ** 2 for t in y_true)
++    if ss_tot == 0.0:
++        return 1.0 if ss_res == 0.0 else 0.0
+     return 1.0 - (ss_res / ss_tot)

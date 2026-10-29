@@ -1,0 +1,13 @@
+diff --git a/sympy_linsolve/solver.py b/sympy_linsolve/solver.py
+index e2ab867..273d7b0 100644
+--- a/sympy_linsolve/solver.py
++++ b/sympy_linsolve/solver.py
+@@ -1,6 +1,8 @@
+ def solve_2x2(a1: float, b1: float, c1: float, a2: float, b2: float, c2: float):
+     det = a1 * b2 - a2 * b1
+     if det == 0:
++        if c1 * b2 - c2 * b1 == 0 and a1 * c2 - a2 * c1 == 0:
++            raise ValueError("Infinite solutions")
+         return None
+     x = (c1 * b2 - c2 * b1) / det
+     y = (a1 * c2 - a2 * c1) / det

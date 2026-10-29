@@ -1,0 +1,40 @@
+diff --git a/ttl_cache.py b/ttl_cache.py
+index dc22555..d7ba30d 100644
+--- a/ttl_cache.py
++++ b/ttl_cache.py
+@@ -8,19 +8,31 @@ class TTLCache:
+         self.cache = OrderedDict()
+         self.expiry = {}
+ 
++    def _purge_expired(self):
++        now = time.time()
++        expired = [k for k, exp in self.expiry.items() if now >= exp]
++        for k in expired:
++            self.cache.pop(k, None)
++            self.expiry.pop(k, None)
++
+     def get(self, key):
+-        # BUG: Does not check expiration timestamp, returning expired data
++        now = time.time()
+         if key in self.cache:
++            if now >= self.expiry.get(key, 0):
++                self.cache.pop(key, None)
++                self.expiry.pop(key, None)
++                return None
+             self.cache.move_to_end(key)
+             return self.cache[key]
+         return None
+ 
+     def put(self, key, value, ttl: float = None):
++        self._purge_expired()
+         if ttl is None: ttl = self.default_ttl
+         if key in self.cache:
+             self.cache.move_to_end(key)
+-        self.cache[key] = value
+-        self.expiry[key] = time.time() + ttl
+-        if len(self.cache) > self.capacity:
++        elif len(self.cache) >= self.capacity:
+             oldest, _ = self.cache.popitem(last=False)
+             self.expiry.pop(oldest, None)
++        self.cache[key] = value
++        self.expiry[key] = time.time() + ttl

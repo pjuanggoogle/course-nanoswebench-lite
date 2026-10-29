@@ -1,0 +1,10 @@
+diff --git a/pytest_nodes/nodeid.py b/pytest_nodes/nodeid.py
+index f1d87b9..5d02bf9 100644
+--- a/pytest_nodes/nodeid.py
++++ b/pytest_nodes/nodeid.py
+@@ -1,2 +1,5 @@
+ def normalize_nodeid(nodeid: str) -> str:
++    if "::" in nodeid:
++        path, rest = nodeid.split("::", 1)
++        return path.replace("\\", "/") + "::" + rest
+     return nodeid.replace("\\", "/")

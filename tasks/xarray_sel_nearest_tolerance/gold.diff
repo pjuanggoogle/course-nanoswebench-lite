@@ -1,0 +1,10 @@
+diff --git a/xarray_index/sel.py b/xarray_index/sel.py
+index 1882c45..c49d338 100644
+--- a/xarray_index/sel.py
++++ b/xarray_index/sel.py
+@@ -1,3 +1,5 @@
+ def sel_nearest(coords: list[float], target: float, tolerance: float = None) -> int:
+     best_idx = min(range(len(coords)), key=lambda i: abs(coords[i] - target))
++    if tolerance is not None and abs(coords[best_idx] - target) > tolerance:
++        raise KeyError(f"No coordinate within tolerance {tolerance}")
+     return best_idx

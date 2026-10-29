@@ -1,0 +1,11 @@
+diff --git a/sklearn_prep/minmax.py b/sklearn_prep/minmax.py
+index 564e91c..45b8f82 100644
+--- a/sklearn_prep/minmax.py
++++ b/sklearn_prep/minmax.py
+@@ -3,4 +3,6 @@ def minmax_scale(values: list[float]) -> list[float]:
+         return []
+     vmin, vmax = min(values), max(values)
+     span = vmax - vmin
++    if span == 0:
++        return [0.0 for _ in values]
+     return [(x - vmin) / span for x in values]

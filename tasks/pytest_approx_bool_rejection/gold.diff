@@ -1,0 +1,11 @@
+diff --git a/pytest_approx/compare.py b/pytest_approx/compare.py
+index 36314a4..90ff4d0 100644
+--- a/pytest_approx/compare.py
++++ b/pytest_approx/compare.py
+@@ -1,4 +1,6 @@
+ def approx_equal(actual, expected, tol: float = 1e-6) -> bool:
++    if isinstance(actual, bool) or isinstance(expected, bool):
++        return isinstance(actual, bool) and isinstance(expected, bool) and actual == expected
+     if isinstance(actual, (int, float)) and isinstance(expected, (int, float)):
+         return abs(actual - expected) <= tol
+     return actual == expected

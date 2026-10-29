@@ -1,0 +1,11 @@
+diff --git a/werkzeug_range/byterange.py b/werkzeug_range/byterange.py
+index 724acd4..e733570 100644
+--- a/werkzeug_range/byterange.py
++++ b/werkzeug_range/byterange.py
+@@ -1,4 +1,6 @@
+ def format_byte_range(start: int, end: int | None = None) -> str:
+     if end is None:
++        if start < 0:
++            return f"bytes={start}"
+         return f"bytes={start}-"
+     return f"bytes={start}-{end - 1}"

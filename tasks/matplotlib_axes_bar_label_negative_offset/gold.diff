@@ -1,0 +1,8 @@
+diff --git a/mpl_bars/bar_label.py b/mpl_bars/bar_label.py
+index b871b56..debd552 100644
+--- a/mpl_bars/bar_label.py
++++ b/mpl_bars/bar_label.py
+@@ -1,2 +1,2 @@
+ def bar_label_positions(heights: list[float], padding: float = 3.0) -> list[float]:
+-    return [h + padding for h in heights]
++    return [h - padding if h < 0 else h + padding for h in heights]

@@ -1,0 +1,10 @@
+diff --git a/flask_helpers/debug.py b/flask_helpers/debug.py
+index 560487d..975f640 100644
+--- a/flask_helpers/debug.py
++++ b/flask_helpers/debug.py
+@@ -1,4 +1,4 @@
+ def get_debug_flag(val: str | None) -> bool:
+     if not val:
+         return False
+-    return bool(val)
++    return val.strip().lower() not in ("", "0", "false", "no")

@@ -1,0 +1,12 @@
+diff --git a/seaborn_cat/dodge.py b/seaborn_cat/dodge.py
+index 793acaa..a6c195e 100644
+--- a/seaborn_cat/dodge.py
++++ b/seaborn_cat/dodge.py
+@@ -1,3 +1,5 @@
+ def dodge_offsets(n_levels: int, width: float = 0.8) -> list[float]:
+-    step = width / (n_levels - 1)
+-    return [round(-width / 2 + i * step, 6) for i in range(n_levels)]
++    if n_levels <= 1:
++        return [0.0] * n_levels
++    step = width / n_levels
++    return [round((i - (n_levels - 1) / 2.0) * step, 6) for i in range(n_levels)]

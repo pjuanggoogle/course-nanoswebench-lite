@@ -1,0 +1,13 @@
+diff --git a/requests_cookies/jar.py b/requests_cookies/jar.py
+index f74b140..5c794b2 100644
+--- a/requests_cookies/jar.py
++++ b/requests_cookies/jar.py
+@@ -9,6 +9,7 @@ class CookieJar:
+         host = host.lower()
+         matched = {}
+         for name, value, cdom in self.cookies:
+-            if host.endswith(cdom):
++            base = cdom.lstrip(".")
++            if host == base or host.endswith("." + base):
+                 matched[name] = value
+         return matched

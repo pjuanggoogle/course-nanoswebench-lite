@@ -1,0 +1,15 @@
+diff --git a/sklearn_impute/imputer.py b/sklearn_impute/imputer.py
+index e64ecb3..e80f7ed 100644
+--- a/sklearn_impute/imputer.py
++++ b/sklearn_impute/imputer.py
+@@ -1,6 +1,8 @@
+ from collections import Counter
+ 
+ def most_frequent_impute(values: list) -> list:
+-    counts = Counter(values)
+-    fill_val = counts.most_common(1)[0][0]
++    valid = [v for v in values if v is not None]
++    counts = Counter(valid)
++    max_cnt = max(counts.values())
++    fill_val = min(k for k, c in counts.items() if c == max_cnt)
+     return [fill_val if v is None else v for v in values]

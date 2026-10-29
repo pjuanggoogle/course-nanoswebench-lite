@@ -1,0 +1,23 @@
+diff --git a/requests_transport/chunked.py b/requests_transport/chunked.py
+index c7a8c1f..5929fe5 100644
+--- a/requests_transport/chunked.py
++++ b/requests_transport/chunked.py
+@@ -5,8 +5,18 @@ CRLF = b"\r\n"
+ def encode_chunked_request(chunks: Iterable[bytes], trailers: Optional[dict[str, str]] = None) -> bytes:
+     body = bytearray()
+     for c in chunks:
++        if len(c) == 0:
++            continue
+         hex_len = f"{len(c):X}".encode("ascii") + CRLF
+         body.extend(hex_len)
+         body.extend(c)
+         body.extend(CRLF)
++    
++    body.extend(b"0" + CRLF)
++    if trailers:
++        for k, v in trailers.items():
++            body.extend(f"{k}: {v}".encode("ascii") + CRLF)
++        body.extend(CRLF)
++    else:
++        body.extend(CRLF)
+     return bytes(body)

@@ -1,0 +1,12 @@
+diff --git a/seaborn_dist/bins.py b/seaborn_dist/bins.py
+index cd45a82..a38ec69 100644
+--- a/seaborn_dist/bins.py
++++ b/seaborn_dist/bins.py
+@@ -6,5 +6,7 @@ def freedman_diaconis_bins(data: list[float]) -> int:
+     q25 = s[n // 4]
+     q75 = s[(3 * n) // 4]
+     iqr = q75 - q25
++    if iqr == 0.0:
++        return math.ceil(math.log2(n) + 1)
+     h = 2.0 * iqr / (n ** (1.0 / 3.0))
+     return max(1, math.ceil((s[-1] - s[0]) / h))

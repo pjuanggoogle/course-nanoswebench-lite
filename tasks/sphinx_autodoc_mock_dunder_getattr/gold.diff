@@ -1,0 +1,10 @@
+diff --git a/sphinx_mock/mock.py b/sphinx_mock/mock.py
+index 0507394..8be1d60 100644
+--- a/sphinx_mock/mock.py
++++ b/sphinx_mock/mock.py
+@@ -1,3 +1,5 @@
+ class MockObject:
+     def __getattr__(self, name: str):
++        if name.startswith("__") and name.endswith("__"):
++            raise AttributeError(name)
+         return MockObject()

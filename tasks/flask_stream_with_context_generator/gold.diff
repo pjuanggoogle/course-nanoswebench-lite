@@ -1,0 +1,20 @@
+diff --git a/flask_ctx/helpers.py b/flask_ctx/helpers.py
+index 4f7038f..54bdf97 100644
+--- a/flask_ctx/helpers.py
++++ b/flask_ctx/helpers.py
+@@ -12,8 +12,11 @@ class AppContext:
+             AppContext.active_stack.pop()
+ 
+ def stream_with_context(ctx: AppContext, gen):
+-    # BUG: Does not wrap in generator try/finally to pop ctx if generator is closed early
+     ctx.push()
+-    for item in gen:
+-        yield item
+-    ctx.pop()
++    try:
++        for item in gen:
++            yield item
++    finally:
++        if hasattr(gen, "close"):
++            gen.close()
++        ctx.pop()

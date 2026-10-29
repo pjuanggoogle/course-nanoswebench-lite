@@ -1,0 +1,12 @@
+diff --git a/requests_auth/basic.py b/requests_auth/basic.py
+index 4af37d0..44527fb 100644
+--- a/requests_auth/basic.py
++++ b/requests_auth/basic.py
+@@ -1,6 +1,6 @@
+ import base64
+ 
+ def basic_auth_header(username: str, password: str) -> str:
+-    raw = f"{username}:{password}".encode("ascii")
++    raw = f"{username}:{password}".encode("latin1")
+     token = base64.b64encode(raw).decode("ascii")
+     return f"Basic {token}"

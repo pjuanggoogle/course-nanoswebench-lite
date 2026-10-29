@@ -1,0 +1,8 @@
+diff --git a/mpl_dates/convert.py b/mpl_dates/convert.py
+index 5d923f9..e83a264 100644
+--- a/mpl_dates/convert.py
++++ b/mpl_dates/convert.py
+@@ -1,2 +1,2 @@
+ def days_to_seconds(days: float) -> int:
+-    return int(days * 86400)
++    return round(days * 86400)

@@ -1,0 +1,18 @@
+diff --git a/toml_strings.py b/toml_strings.py
+index 664b001..d4537fc 100644
+--- a/toml_strings.py
++++ b/toml_strings.py
+@@ -1,5 +1,10 @@
++import re
++
+ def parse_multiline_basic_string(raw: str) -> str:
+     content = raw[3:-3]
+-    # BUG: Does not strip leading newline when immediately following opening quotes
+-    # and does not handle line continuation backslash
+-    return content.replace('\\n', '\n').replace('\\t', '\t')
++    if content.startswith('\n'):
++        content = content[1:]
++    elif content.startswith('\r\n'):
++        content = content[2:]
++    content = re.sub(r'\\\s*\r?\n\s*', '', content)
++    return content.replace('\\n', '\n').replace('\\t', '\t').replace('\\\\', '\\')

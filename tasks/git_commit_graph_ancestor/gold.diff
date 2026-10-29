@@ -1,0 +1,18 @@
+diff --git a/graph.py b/graph.py
+index fffc7ed..239b4a2 100644
+--- a/graph.py
++++ b/graph.py
+@@ -13,5 +13,11 @@ def find_lowest_common_ancestors(graph: dict[str, list[str]], a: str, b: str) ->
+     anc_a = get_ancestors(a)
+     anc_b = get_ancestors(b)
+     common = anc_a.intersection(anc_b)
+-    # BUG: Returns all common ancestors without filtering redundant ones (ancestors of ancestors)
+-    return common
++    
++    # Filter out common ancestors that are an ancestor of another common ancestor
++    redundant = set()
++    for node in common:
++        for parent in graph.get(node, []):
++            redundant.update(get_ancestors(parent))
++            
++    return common - redundant

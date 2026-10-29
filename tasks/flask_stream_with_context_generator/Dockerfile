@@ -1,0 +1,1 @@
+FROM python:3.10-slim\nRUN pip install --no-cache-dir pytest numpy\nWORKDIR /app\nCOPY repo/ /app/\n

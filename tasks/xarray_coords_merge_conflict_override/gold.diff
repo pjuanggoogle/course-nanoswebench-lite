@@ -1,0 +1,14 @@
+diff --git a/xarray_merge/coords.py b/xarray_merge/coords.py
+index 79b5516..0ec5b9c 100644
+--- a/xarray_merge/coords.py
++++ b/xarray_merge/coords.py
+@@ -1,5 +1,9 @@
+ def merge_coords(left: dict, right: dict, compat: str = "no_conflicts") -> dict:
+     out = dict(left)
+     for k, v in right.items():
++        if k in out and out[k] != v:
++            if compat == "override":
++                continue
++            raise ValueError(f"Conflict in coord: {k}")
+         out[k] = v
+     return out

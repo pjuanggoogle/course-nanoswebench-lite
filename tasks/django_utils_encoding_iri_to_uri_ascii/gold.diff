@@ -1,0 +1,10 @@
+diff --git a/django_encoding/uri.py b/django_encoding/uri.py
+index aa32393..ee2374f 100644
+--- a/django_encoding/uri.py
++++ b/django_encoding/uri.py
+@@ -3,4 +3,4 @@ import urllib.parse
+ def iri_to_uri(iri: str) -> str:
+     if not iri:
+         return iri
+-    return urllib.parse.quote(iri)
++    return urllib.parse.quote(iri, safe="/:?#[]@!$&'()*+,;=%~-")

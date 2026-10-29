@@ -1,0 +1,8 @@
+diff --git a/pylint_config/options.py b/pylint_config/options.py
+index a0dac73..7b2f52f 100644
+--- a/pylint_config/options.py
++++ b/pylint_config/options.py
+@@ -1,2 +1,2 @@
+ def parse_csv_option(raw: str) -> list[str]:
+-    return [item.strip() for item in raw.split(",")]
++    return [item.strip() for item in raw.split(",") if item.strip()]

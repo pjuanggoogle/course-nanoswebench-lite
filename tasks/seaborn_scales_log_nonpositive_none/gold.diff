@@ -1,0 +1,10 @@
+diff --git a/seaborn_scales/log.py b/seaborn_scales/log.py
+index 753608a..9511c70 100644
+--- a/seaborn_scales/log.py
++++ b/seaborn_scales/log.py
+@@ -1,4 +1,4 @@
+ import math
+ 
+ def log10_scale(values: list[float | None]) -> list[float | None]:
+-    return [math.log10(x) for x in values]
++    return [math.log10(x) if (x is not None and x > 0) else None for x in values]

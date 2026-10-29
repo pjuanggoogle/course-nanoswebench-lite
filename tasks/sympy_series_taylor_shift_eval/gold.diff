@@ -1,0 +1,11 @@
+diff --git a/sympy_series/taylor.py b/sympy_series/taylor.py
+index 77f46f3..64a8575 100644
+--- a/sympy_series/taylor.py
++++ b/sympy_series/taylor.py
+@@ -3,5 +3,5 @@ import math
+ def eval_taylor(derivs: list[float], x0: float, x: float) -> float:
+     total = 0.0
+     for k, d in enumerate(derivs):
+-        total += d * (x ** k)
++        total += d * ((x - x0) ** k) / math.factorial(k)
+     return total

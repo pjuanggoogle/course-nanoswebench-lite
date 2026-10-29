@@ -1,0 +1,10 @@
+diff --git a/requests_cookies/domain.py b/requests_cookies/domain.py
+index 00a42ed..0f2643d 100644
+--- a/requests_cookies/domain.py
++++ b/requests_cookies/domain.py
+@@ -1,4 +1,4 @@
+ def cookie_domain_matches(request_host: str, cookie_domain: str) -> bool:
+     request_host = request_host.lower()
+     target = cookie_domain.lstrip(".").lower()
+-    return request_host.endswith(target)
++    return request_host == target or request_host.endswith("." + target)

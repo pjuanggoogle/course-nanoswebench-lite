@@ -1,0 +1,10 @@
+diff --git a/xarray_fmt/truncate.py b/xarray_fmt/truncate.py
+index 0c2f17e..fa12bb3 100644
+--- a/xarray_fmt/truncate.py
++++ b/xarray_fmt/truncate.py
+@@ -1,4 +1,4 @@
+ def maybe_truncate(text: str, maxlen: int = 20) -> str:
+-    if len(text) >= maxlen:
++    if len(text) > maxlen:
+         return text[: maxlen - 3] + "..."
+     return text

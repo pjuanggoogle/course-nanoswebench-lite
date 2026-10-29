@@ -1,0 +1,10 @@
+diff --git a/mpl_axes/limits.py b/mpl_axes/limits.py
+index fd5ef0a..109d797 100644
+--- a/mpl_axes/limits.py
++++ b/mpl_axes/limits.py
+@@ -2,4 +2,4 @@ def normalize_xlim(left: float, right: float) -> tuple[float, float]:
+     if left == right:
+         delta = 0.5 if left == 0 else 0.05 * abs(left)
+         return (left - delta, right + delta)
+-    return (min(left, right), max(left, right))
++    return (left, right)

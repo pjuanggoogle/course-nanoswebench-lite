@@ -1,0 +1,1153 @@
+{
+  "requests_query_params": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_requests.py",
+    "fail_to_pass": [
+      "tests/test_requests.py::test_prepare_url_list_params"
+    ],
+    "pass_to_pass": [
+      "tests/test_requests.py::test_prepare_url_simple",
+      "tests/test_requests.py::test_prepare_url_empty_params",
+      "tests/test_requests.py::test_prepare_url_existing_query"
+    ]
+  },
+  "pytest_repr_exception_handler": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_formatter.py",
+    "fail_to_pass": [
+      "tests/test_formatter.py::test_safely_catch_crashing_repr",
+      "tests/test_formatter.py::test_include_exception_type_in_fallback_repr"
+    ],
+    "pass_to_pass": [
+      "tests/test_formatter.py::test_format_normal_object",
+      "tests/test_formatter.py::test_format_exception_message"
+    ]
+  },
+  "sympy_symbolic_polynomial_gcd": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_poly.py",
+    "fail_to_pass": [
+      "tests/test_poly.py::test_near_zero_coefficient_snapping"
+    ],
+    "pass_to_pass": [
+      "tests/test_poly.py::test_simple_gcd",
+      "tests/test_poly.py::test_coprime_polynomials"
+    ]
+  },
+  "http_chunked_transfer_decoder": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_chunked.py",
+    "fail_to_pass": [
+      "tests/test_chunked.py::test_chunk_with_semicolon_extensions"
+    ],
+    "pass_to_pass": [
+      "tests/test_chunked.py::test_basic_chunks",
+      "tests/test_chunked.py::test_empty_payload"
+    ]
+  },
+  "git_commit_graph_ancestor": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_graph.py",
+    "fail_to_pass": [
+      "tests/test_graph.py::test_prune_redundant_ancestors_in_diamond_graph"
+    ],
+    "pass_to_pass": [
+      "tests/test_graph.py::test_linear_history",
+      "tests/test_graph.py::test_simple_branch_fork"
+    ]
+  },
+  "qutebrowser_url_sanitizer": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_url.py",
+    "fail_to_pass": [
+      "tests/test_url.py::test_default_scheme_inference",
+      "tests/test_url.py::test_unescaped_percent_sign_in_query"
+    ],
+    "pass_to_pass": [
+      "tests/test_url.py::test_simple_http_url",
+      "tests/test_url.py::test_ipv6_bracketed_host_with_port"
+    ]
+  },
+  "openlibrary_edition_isbn_normalizer": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_isbn.py",
+    "fail_to_pass": [
+      "tests/test_isbn.py::test_isbn10_with_x_checksum",
+      "tests/test_isbn.py::test_isbn13_checksum_zero_remainder"
+    ],
+    "pass_to_pass": [
+      "tests/test_isbn.py::test_valid_isbn13_unchanged",
+      "tests/test_isbn.py::test_strip_hyphens_and_spaces"
+    ]
+  },
+  "toml_multiline_string_escape": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_toml.py",
+    "fail_to_pass": [
+      "tests/test_toml.py::test_multiline_immediate_leading_newline_trim",
+      "tests/test_toml.py::test_multiline_escaped_line_continuation"
+    ],
+    "pass_to_pass": [
+      "tests/test_toml.py::test_simple_multiline"
+    ]
+  },
+  "diff_patch_fuzzy_applicator": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_patcher.py",
+    "fail_to_pass": [
+      "tests/test_patcher.py::test_offset_hunk_context_search"
+    ],
+    "pass_to_pass": [
+      "tests/test_patcher.py::test_exact_line_hunk"
+    ]
+  },
+  "rate_limiter_token_bucket": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_limiter.py",
+    "fail_to_pass": [
+      "tests/test_limiter.py::test_subsecond_fractional_token_refill"
+    ],
+    "pass_to_pass": [
+      "tests/test_limiter.py::test_initial_burst_capacity"
+    ]
+  },
+  "websocket_frame_masking_parser": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_ws.py",
+    "fail_to_pass": [
+      "tests/test_ws.py::test_masked_text_frame",
+      "tests/test_ws.py::test_extended_16bit_length_frame"
+    ],
+    "pass_to_pass": [
+      "tests/test_ws.py::test_unmasked_small_text_frame"
+    ]
+  },
+  "lru_ttl_cache_expiry": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_ttl.py",
+    "fail_to_pass": [
+      "tests/test_ttl.py::test_ttl_expiration_returns_none",
+      "tests/test_ttl.py::test_evict_expired_before_active_lru"
+    ],
+    "pass_to_pass": [
+      "tests/test_ttl.py::test_basic_get_put",
+      "tests/test_ttl.py::test_lru_eviction"
+    ]
+  },
+  "pytest_fixture_scope_tear_down": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_fixtures.py",
+    "fail_to_pass": [
+      "tests/test_fixtures.py::test_teardown_all_fixtures_even_if_first_fails"
+    ],
+    "pass_to_pass": [
+      "tests/test_fixtures.py::test_clean_fixtures"
+    ]
+  },
+  "sphinx_autodoc_typehints_pep585": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_type_formatter.py",
+    "fail_to_pass": [
+      "tests/test_type_formatter.py::test_pep604_union",
+      "tests/test_type_formatter.py::test_nested_pep585_generics",
+      "tests/test_type_formatter.py::test_dict_generic"
+    ],
+    "pass_to_pass": [
+      "tests/test_type_formatter.py::test_primitive_types"
+    ]
+  },
+  "requests_chunked_boundary_encoding": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_chunked.py",
+    "fail_to_pass": [
+      "tests/test_chunked.py::test_basic_chunked_encoding",
+      "tests/test_chunked.py::test_empty_intermediate_chunks_filtered",
+      "tests/test_chunked.py::test_chunked_with_trailers"
+    ],
+    "pass_to_pass": []
+  },
+  "pylint_cyclic_import_detector": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_cyclic_imports.py",
+    "fail_to_pass": [
+      "tests/test_cyclic_imports.py::test_type_checking_guard_ignored",
+      "tests/test_cyclic_imports.py::test_function_local_import_ignored"
+    ],
+    "pass_to_pass": [
+      "tests/test_cyclic_imports.py::test_top_level_direct_cycle"
+    ]
+  },
+  "flask_stream_with_context_generator": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_stream_context.py",
+    "fail_to_pass": [
+      "tests/test_stream_context.py::test_early_generator_close_cleans_context",
+      "tests/test_stream_context.py::test_generator_exception_cleans_context"
+    ],
+    "pass_to_pass": [
+      "tests/test_stream_context.py::test_normal_stream_consumes_all"
+    ]
+  },
+  "csv_dialect_sniffer_delimiter": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_sniffer.py",
+    "fail_to_pass": [
+      "tests/test_sniffer.py::test_semicolon_with_quoted_commas",
+      "tests/test_sniffer.py::test_pipe_delimited_with_tabs"
+    ],
+    "pass_to_pass": [
+      "tests/test_sniffer.py::test_clean_comma_separated"
+    ]
+  },
+  "click_command_prefix_override": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_commands.py",
+    "fail_to_pass": [
+      "tests/test_commands.py::test_exact_match_priority"
+    ],
+    "pass_to_pass": [
+      "tests/test_commands.py::test_basic_command",
+      "tests/test_commands.py::test_unique_prefix_match"
+    ]
+  },
+  "requests_params_bool_lowercase": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_params.py",
+    "fail_to_pass": [
+      "tests/test_params.py::test_bool_param_serialization"
+    ],
+    "pass_to_pass": [
+      "tests/test_params.py::test_basic_string_and_int_params"
+    ]
+  },
+  "dateutil_rrule_leap_easter": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_rrule.py",
+    "fail_to_pass": [
+      "tests/test_rrule.py::test_leap_year_feb29_recurrence"
+    ],
+    "pass_to_pass": [
+      "tests/test_rrule.py::test_yearly_standard"
+    ]
+  },
+  "django_slugify_unicode_hyphens": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_slugify.py",
+    "fail_to_pass": [
+      "tests/test_slugify.py::test_leading_trailing_underscores_and_spaces"
+    ],
+    "pass_to_pass": [
+      "tests/test_slugify.py::test_basic_slugify"
+    ]
+  },
+  "django_urlresolver_optional_named_group": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_resolver.py",
+    "fail_to_pass": [
+      "tests/test_resolver.py::test_omitted_or_none_optional_group"
+    ],
+    "pass_to_pass": [
+      "tests/test_resolver.py::test_required_and_present_optional"
+    ]
+  },
+  "django_form_changed_data_initial_callable": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_forms.py",
+    "fail_to_pass": [
+      "tests/test_forms.py::test_callable_initial_unchanged"
+    ],
+    "pass_to_pass": [
+      "tests/test_forms.py::test_static_initial_comparison"
+    ]
+  },
+  "flask_json_tag_datetime_utc": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_tag.py",
+    "fail_to_pass": [
+      "tests/test_tag.py::test_aware_utc_and_offset_datetime"
+    ],
+    "pass_to_pass": [
+      "tests/test_tag.py::test_naive_datetime"
+    ]
+  },
+  "flask_config_from_envvar_prefix": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_config.py",
+    "fail_to_pass": [
+      "tests/test_config.py::test_unquoted_string_and_repeated_prefix_in_key"
+    ],
+    "pass_to_pass": [
+      "tests/test_config.py::test_json_typed_values"
+    ]
+  },
+  "requests_cookiejar_domain_dot_match": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_jar.py",
+    "fail_to_pass": [
+      "tests/test_jar.py::test_root_domain_and_suffix_boundary"
+    ],
+    "pass_to_pass": [
+      "tests/test_jar.py::test_exact_subdomain_match"
+    ]
+  },
+  "requests_auth_netrc_default_machine": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_netrc.py",
+    "fail_to_pass": [
+      "tests/test_netrc.py::test_host_with_port_and_default_fallback"
+    ],
+    "pass_to_pass": [
+      "tests/test_netrc.py::test_exact_host_lookup"
+    ]
+  },
+  "pytest_approx_nan_comparison": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_approx.py",
+    "fail_to_pass": [
+      "tests/test_approx.py::test_nan_ok_and_infinities"
+    ],
+    "pass_to_pass": [
+      "tests/test_approx.py::test_finite_approx"
+    ]
+  },
+  "pytest_mark_parametrize_duplicate_ids": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_ids.py",
+    "fail_to_pass": [
+      "tests/test_ids.py::test_duplicate_ids_disambiguated"
+    ],
+    "pass_to_pass": [
+      "tests/test_ids.py::test_unique_ids"
+    ]
+  },
+  "pytest_monkeypatch_setenv_undo_chain": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_monkeypatch.py",
+    "fail_to_pass": [
+      "tests/test_monkeypatch.py::test_repeated_setenv_restores_original"
+    ],
+    "pass_to_pass": [
+      "tests/test_monkeypatch.py::test_single_setenv_undo"
+    ]
+  },
+  "pytest_caplog_level_context_restore": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_caplog.py",
+    "fail_to_pass": [
+      "tests/test_caplog.py::test_restore_level_on_exception"
+    ],
+    "pass_to_pass": [
+      "tests/test_caplog.py::test_normal_level_restore"
+    ]
+  },
+  "pytest_nodeid_normpath_windows_sep": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_nodeid.py",
+    "fail_to_pass": [
+      "tests/test_nodeid.py::test_preserves_backslash_in_parametrize_id"
+    ],
+    "pass_to_pass": [
+      "tests/test_nodeid.py::test_simple_windows_path"
+    ]
+  },
+  "pylint_unused_variable_underscore_prefix": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_unused.py",
+    "fail_to_pass": [
+      "tests/test_unused.py::test_ignores_underscore_prefixed_variables"
+    ],
+    "pass_to_pass": [
+      "tests/test_unused.py::test_reports_normal_unused"
+    ]
+  },
+  "pylint_dangerous_default_value_call": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_checker.py",
+    "fail_to_pass": [
+      "tests/test_checker.py::test_builtin_call_mutable_defaults"
+    ],
+    "pass_to_pass": [
+      "tests/test_checker.py::test_literal_mutable_defaults"
+    ]
+  },
+  "pylint_unreachable_code_after_terminator": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_unreachable.py",
+    "fail_to_pass": [
+      "tests/test_unreachable.py::test_unreachable_after_break_and_continue"
+    ],
+    "pass_to_pass": [
+      "tests/test_unreachable.py::test_unreachable_after_return"
+    ]
+  },
+  "pylint_missing_return_doc_generator": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_return_doc.py",
+    "fail_to_pass": [
+      "tests/test_return_doc.py::test_generator_with_early_bare_return"
+    ],
+    "pass_to_pass": [
+      "tests/test_return_doc.py::test_regular_functions"
+    ]
+  },
+  "sphinx_intersphinx_inventory_placeholder": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_inventory.py",
+    "fail_to_pass": [
+      "tests/test_inventory.py::test_dollar_placeholder_expansion"
+    ],
+    "pass_to_pass": [
+      "tests/test_inventory.py::test_explicit_uri_without_placeholder"
+    ]
+  },
+  "sphinx_pycode_ast_unparse_single_tuple": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_unparse.py",
+    "fail_to_pass": [
+      "tests/test_unparse.py::test_single_element_tuple_trailing_comma"
+    ],
+    "pass_to_pass": [
+      "tests/test_unparse.py::test_empty_and_multi_tuple"
+    ]
+  },
+  "sympy_rational_floor_ceiling_neg": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_rational.py",
+    "fail_to_pass": [
+      "tests/test_rational.py::test_negative_numerator_and_denominator"
+    ],
+    "pass_to_pass": [
+      "tests/test_rational.py::test_positive_rational"
+    ]
+  },
+  "sympy_simplify_trig_pythagorean": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_trigsimp.py",
+    "fail_to_pass": [
+      "tests/test_trigsimp.py::test_scaled_and_offset_pythagorean"
+    ],
+    "pass_to_pass": [
+      "tests/test_trigsimp.py::test_unit_pythagorean"
+    ]
+  },
+  "sympy_series_taylor_shift_eval": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_taylor.py",
+    "fail_to_pass": [
+      "tests/test_taylor.py::test_higher_order_shifted_center"
+    ],
+    "pass_to_pass": [
+      "tests/test_taylor.py::test_linear_at_zero"
+    ]
+  },
+  "sympy_solvers_linear_system_singular": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_solver.py",
+    "fail_to_pass": [
+      "tests/test_solver.py::test_dependent_infinite_solutions"
+    ],
+    "pass_to_pass": [
+      "tests/test_solver.py::test_unique_and_inconsistent"
+    ]
+  },
+  "sklearn_standard_scaler_zero_variance": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_scaler.py",
+    "fail_to_pass": [
+      "tests/test_scaler.py::test_constant_feature_column"
+    ],
+    "pass_to_pass": [
+      "tests/test_scaler.py::test_normal_scaling"
+    ]
+  },
+  "sklearn_onehot_encoder_handle_unknown": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_onehot.py",
+    "fail_to_pass": [
+      "tests/test_onehot.py::test_handle_unknown_ignore"
+    ],
+    "pass_to_pass": [
+      "tests/test_onehot.py::test_known_categories_and_error_mode"
+    ]
+  },
+  "sklearn_kfold_remainder_distribution": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_kfold.py",
+    "fail_to_pass": [
+      "tests/test_kfold.py::test_uneven_remainder_distributed_across_first_folds"
+    ],
+    "pass_to_pass": [
+      "tests/test_kfold.py::test_even_division"
+    ]
+  },
+  "sklearn_impute_most_frequent_ties": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_imputer.py",
+    "fail_to_pass": [
+      "tests/test_imputer.py::test_tie_breaking_and_majority_none"
+    ],
+    "pass_to_pass": [
+      "tests/test_imputer.py::test_clear_winner"
+    ]
+  },
+  "matplotlib_colors_to_rgba_hex_alpha": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_colors.py",
+    "fail_to_pass": [
+      "tests/test_colors.py::test_shorthand_and_eight_digit_alpha"
+    ],
+    "pass_to_pass": [
+      "tests/test_colors.py::test_six_digit_hex"
+    ]
+  },
+  "matplotlib_ticker_Degenerate_locator": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_locator.py",
+    "fail_to_pass": [
+      "tests/test_locator.py::test_singular_and_inverted_range"
+    ],
+    "pass_to_pass": [
+      "tests/test_locator.py::test_standard_range"
+    ]
+  },
+  "matplotlib_axes_bar_label_negative_offset": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_bar_label.py",
+    "fail_to_pass": [
+      "tests/test_bar_label.py::test_negative_bars_padded_outward"
+    ],
+    "pass_to_pass": [
+      "tests/test_bar_label.py::test_positive_bars"
+    ]
+  },
+  "matplotlib_bbox_union_ignore_null": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_bbox.py",
+    "fail_to_pass": [
+      "tests/test_bbox.py::test_ignores_degenerate_zero_area_bbox"
+    ],
+    "pass_to_pass": [
+      "tests/test_bbox.py::test_non_empty_bboxes"
+    ]
+  },
+  "xarray_coords_merge_conflict_override": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_coords.py",
+    "fail_to_pass": [
+      "tests/test_coords.py::test_conflict_and_override_modes"
+    ],
+    "pass_to_pass": [
+      "tests/test_coords.py::test_disjoint_and_identical_merge"
+    ]
+  },
+  "xarray_sel_nearest_tolerance": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_sel.py",
+    "fail_to_pass": [
+      "tests/test_sel.py::test_nearest_with_tolerance_bound"
+    ],
+    "pass_to_pass": [
+      "tests/test_sel.py::test_nearest_without_tolerance"
+    ]
+  },
+  "xarray_groupby_bins_include_lowest": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_groupby.py",
+    "fail_to_pass": [
+      "tests/test_groupby.py::test_include_lowest_left_edge"
+    ],
+    "pass_to_pass": [
+      "tests/test_groupby.py::test_strict_right_closed_bins"
+    ]
+  },
+  "xarray_nanmean_all_nan_slice": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_nanreduce.py",
+    "fail_to_pass": [
+      "tests/test_nanreduce.py::test_all_nan_returns_nan"
+    ],
+    "pass_to_pass": [
+      "tests/test_nanreduce.py::test_partial_nan_mean"
+    ]
+  },
+  "astropy_units_quantity_equivalencies": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_equiv.py",
+    "fail_to_pass": [
+      "tests/test_equiv.py::test_reverse_equivalency"
+    ],
+    "pass_to_pass": [
+      "tests/test_equiv.py::test_forward_equivalency"
+    ]
+  },
+  "astropy_table_join_masked_keys": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_join.py",
+    "fail_to_pass": [
+      "tests/test_join.py::test_masked_none_keys_do_not_match"
+    ],
+    "pass_to_pass": [
+      "tests/test_join.py::test_basic_inner_join"
+    ]
+  },
+  "astropy_time_iso_leap_second_parse": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_iso.py",
+    "fail_to_pass": [
+      "tests/test_iso.py::test_leap_second_rollover"
+    ],
+    "pass_to_pass": [
+      "tests/test_iso.py::test_standard_iso_timestamp"
+    ]
+  },
+  "astropy_fits_header_card_hierarch": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_card.py",
+    "fail_to_pass": [
+      "tests/test_card.py::test_long_or_spaced_hierarch_keyword"
+    ],
+    "pass_to_pass": [
+      "tests/test_card.py::test_short_standard_keyword"
+    ]
+  },
+  "seaborn_categorical_dodge_offset": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_dodge.py",
+    "fail_to_pass": [
+      "tests/test_dodge.py::test_single_and_multiple_hue_levels"
+    ],
+    "pass_to_pass": [
+      "tests/test_dodge.py::test_zero_width_offsets"
+    ]
+  },
+  "seaborn_palettes_blend_single_color": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_blend.py",
+    "fail_to_pass": [
+      "tests/test_blend.py::test_single_and_zero_color_blend"
+    ],
+    "pass_to_pass": [
+      "tests/test_blend.py::test_three_color_blend"
+    ]
+  },
+  "seaborn_utils_despine_trim_visible": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_despine.py",
+    "fail_to_pass": [
+      "tests/test_despine.py::test_trim_only_visible_spines"
+    ],
+    "pass_to_pass": [
+      "tests/test_despine.py::test_basic_despine_no_trim"
+    ]
+  },
+  "seaborn_distributions_fd_zero_iqr": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_bins.py",
+    "fail_to_pass": [
+      "tests/test_bins.py::test_zero_iqr_falls_back_to_sturges"
+    ],
+    "pass_to_pass": [
+      "tests/test_bins.py::test_positive_iqr_bins"
+    ]
+  },
+  "django_http_parse_cookie_empty_key": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_cookies.py",
+    "fail_to_pass": [
+      "tests/test_cookies.py::test_ignore_empty_key_segments"
+    ],
+    "pass_to_pass": [
+      "tests/test_cookies.py::test_basic_cookies"
+    ]
+  },
+  "django_multivaluedict_getlist_default": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_multivalue.py",
+    "fail_to_pass": [
+      "tests/test_multivalue.py::test_getlist_custom_default"
+    ],
+    "pass_to_pass": [
+      "tests/test_multivalue.py::test_getlist_existing_and_empty"
+    ]
+  },
+  "django_html_conditional_escape_safe": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_escape.py",
+    "fail_to_pass": [
+      "tests/test_escape.py::test_preserves_safe_string"
+    ],
+    "pass_to_pass": [
+      "tests/test_escape.py::test_escapes_plain_string"
+    ]
+  },
+  "django_validators_domain_trailing_dot": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_domain.py",
+    "fail_to_pass": [
+      "tests/test_domain.py::test_fqdn_single_trailing_dot"
+    ],
+    "pass_to_pass": [
+      "tests/test_domain.py::test_standard_domains"
+    ]
+  },
+  "django_utils_encoding_iri_to_uri_ascii": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_uri.py",
+    "fail_to_pass": [
+      "tests/test_uri.py::test_unicode_iri_with_query_and_scheme"
+    ],
+    "pass_to_pass": [
+      "tests/test_uri.py::test_simple_path"
+    ]
+  },
+  "flask_config_from_prefixed_env_parse": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_env.py",
+    "fail_to_pass": [
+      "tests/test_env.py::test_json_typed_env_values"
+    ],
+    "pass_to_pass": [
+      "tests/test_env.py::test_string_env_values"
+    ]
+  },
+  "flask_helpers_get_debug_flag_falsy": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_debug.py",
+    "fail_to_pass": [
+      "tests/test_debug.py::test_falsy_strings"
+    ],
+    "pass_to_pass": [
+      "tests/test_debug.py::test_truthy_and_none"
+    ]
+  },
+  "requests_auth_basic_latin1_encode": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_basic_auth.py",
+    "fail_to_pass": [
+      "tests/test_basic_auth.py::test_latin1_credentials"
+    ],
+    "pass_to_pass": [
+      "tests/test_basic_auth.py::test_ascii_credentials"
+    ]
+  },
+  "requests_netrc_host_port_strip": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_netrc.py",
+    "fail_to_pass": [
+      "tests/test_netrc.py::test_host_with_port"
+    ],
+    "pass_to_pass": [
+      "tests/test_netrc.py::test_host_without_port"
+    ]
+  },
+  "requests_cookies_domain_match_boundary": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_cookie_domain.py",
+    "fail_to_pass": [
+      "tests/test_cookie_domain.py::test_rejects_partial_host_suffix"
+    ],
+    "pass_to_pass": [
+      "tests/test_cookie_domain.py::test_exact_and_subdomain_match"
+    ]
+  },
+  "pytest_approx_bool_rejection": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_approx.py",
+    "fail_to_pass": [
+      "tests/test_approx.py::test_bool_not_approx_number"
+    ],
+    "pass_to_pass": [
+      "tests/test_approx.py::test_numeric_approx"
+    ]
+  },
+  "pytest_nodeid_normpath_brackets": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_nodeid.py",
+    "fail_to_pass": [
+      "tests/test_nodeid.py::test_preserves_backslashes_in_parametrize_id"
+    ],
+    "pass_to_pass": [
+      "tests/test_nodeid.py::test_simple_windows_path"
+    ]
+  },
+  "pytest_monkeypatch_delenv_raising": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_delenv.py",
+    "fail_to_pass": [
+      "tests/test_delenv.py::test_delenv_missing_not_raising"
+    ],
+    "pass_to_pass": [
+      "tests/test_delenv.py::test_delenv_existing_and_raising"
+    ]
+  },
+  "pytest_importorskip_minversion_tuple": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_version.py",
+    "fail_to_pass": [
+      "tests/test_version.py::test_multi_digit_minor_version"
+    ],
+    "pass_to_pass": [
+      "tests/test_version.py::test_single_digit_versions"
+    ]
+  },
+  "pytest_recwarn_pop_subclass_match": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_recorder.py",
+    "fail_to_pass": [
+      "tests/test_recorder.py::test_subclass_warning_match"
+    ],
+    "pass_to_pass": [
+      "tests/test_recorder.py::test_exact_warning_class"
+    ]
+  },
+  "sympy_rational_zero_canonical": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_rational.py",
+    "fail_to_pass": [
+      "tests/test_rational.py::test_negative_denominator_and_zero"
+    ],
+    "pass_to_pass": [
+      "tests/test_rational.py::test_positive_reduction"
+    ]
+  },
+  "sympy_ntheory_isprime_two_and_one": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_primality.py",
+    "fail_to_pass": [
+      "tests/test_primality.py::test_boundary_one_and_two"
+    ],
+    "pass_to_pass": [
+      "tests/test_primality.py::test_odd_primes_and_composites"
+    ]
+  },
+  "sympy_combinatorics_perm_parity": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_permutations.py",
+    "fail_to_pass": [
+      "tests/test_permutations.py::test_three_cycle_is_even"
+    ],
+    "pass_to_pass": [
+      "tests/test_permutations.py::test_identity_and_single_swap"
+    ]
+  },
+  "sympy_matrices_trace_non_square": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_trace.py",
+    "fail_to_pass": [
+      "tests/test_trace.py::test_non_square_raises_value_error"
+    ],
+    "pass_to_pass": [
+      "tests/test_trace.py::test_square_matrix_trace"
+    ]
+  },
+  "sympy_polys_degree_leading_zeros": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_degree.py",
+    "fail_to_pass": [
+      "tests/test_degree.py::test_leading_zeros_and_zero_poly"
+    ],
+    "pass_to_pass": [
+      "tests/test_degree.py::test_normalized_polynomial"
+    ]
+  },
+  "sklearn_metrics_r2_constant_target": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_r2.py",
+    "fail_to_pass": [
+      "tests/test_r2.py::test_constant_y_true"
+    ],
+    "pass_to_pass": [
+      "tests/test_r2.py::test_standard_r2"
+    ]
+  },
+  "sklearn_preprocessing_minmax_zero_range": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_minmax.py",
+    "fail_to_pass": [
+      "tests/test_minmax.py::test_constant_values"
+    ],
+    "pass_to_pass": [
+      "tests/test_minmax.py::test_varying_values"
+    ]
+  },
+  "sklearn_impute_simple_median_even": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_median.py",
+    "fail_to_pass": [
+      "tests/test_median.py::test_even_count_median"
+    ],
+    "pass_to_pass": [
+      "tests/test_median.py::test_odd_count_median"
+    ]
+  },
+  "sklearn_stop_words_case_normalize": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_stopwords.py",
+    "fail_to_pass": [
+      "tests/test_stopwords.py::test_mixed_case_stopwords_set"
+    ],
+    "pass_to_pass": [
+      "tests/test_stopwords.py::test_lowercase_stopwords"
+    ]
+  },
+  "sklearn_model_selection_train_test_empty": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_split.py",
+    "fail_to_pass": [
+      "tests/test_split.py::test_ceil_small_sample_and_bounds"
+    ],
+    "pass_to_pass": [
+      "tests/test_split.py::test_even_multiple"
+    ]
+  },
+  "matplotlib_colors_to_hex_alpha": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_hex.py",
+    "fail_to_pass": [
+      "tests/test_hex.py::test_keep_alpha_channel"
+    ],
+    "pass_to_pass": [
+      "tests/test_hex.py::test_rgb_only"
+    ]
+  },
+  "matplotlib_dates_days_to_seconds_round": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_convert.py",
+    "fail_to_pass": [
+      "tests/test_convert.py::test_one_hour_float_precision"
+    ],
+    "pass_to_pass": [
+      "tests/test_convert.py::test_whole_and_half_days"
+    ]
+  },
+  "matplotlib_cbook_linestyle_already_named": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_linestyle.py",
+    "fail_to_pass": [
+      "tests/test_linestyle.py::test_full_names_accepted"
+    ],
+    "pass_to_pass": [
+      "tests/test_linestyle.py::test_short_codes"
+    ]
+  },
+  "matplotlib_axes_xlim_preserve_inverted": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_limits.py",
+    "fail_to_pass": [
+      "tests/test_limits.py::test_inverted_limits_preserved"
+    ],
+    "pass_to_pass": [
+      "tests/test_limits.py::test_ascending_and_singular"
+    ]
+  },
+  "matplotlib_transforms_bbox_union_empty": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_bbox.py",
+    "fail_to_pass": [
+      "tests/test_bbox.py::test_skips_degenerate_bboxes"
+    ],
+    "pass_to_pass": [
+      "tests/test_bbox.py::test_non_empty_bboxes"
+    ]
+  },
+  "sphinx_util_strip_ansi_compound": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_ansi.py",
+    "fail_to_pass": [
+      "tests/test_ansi.py::test_compound_and_empty_reset"
+    ],
+    "pass_to_pass": [
+      "tests/test_ansi.py::test_single_code"
+    ]
+  },
+  "sphinx_roles_pep_reference_anchor": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_pep.py",
+    "fail_to_pass": [
+      "tests/test_pep.py::test_pep_with_anchor"
+    ],
+    "pass_to_pass": [
+      "tests/test_pep.py::test_plain_pep"
+    ]
+  },
+  "sphinx_autodoc_mock_dunder_getattr": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_mock.py",
+    "fail_to_pass": [
+      "tests/test_mock.py::test_dunder_raises_attribute_error_and_unwrap_works"
+    ],
+    "pass_to_pass": [
+      "tests/test_mock.py::test_normal_attribute_mocked"
+    ]
+  },
+  "sphinx_domains_split_arglist_nested": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_arglist.py",
+    "fail_to_pass": [
+      "tests/test_arglist.py::test_nested_brackets_and_parens"
+    ],
+    "pass_to_pass": [
+      "tests/test_arglist.py::test_simple_args"
+    ]
+  },
+  "sphinx_html_relpath_preserve_anchor": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_uris.py",
+    "fail_to_pass": [
+      "tests/test_uris.py::test_same_doc_with_anchor"
+    ],
+    "pass_to_pass": [
+      "tests/test_uris.py::test_cross_directory"
+    ]
+  },
+  "pylint_variables_ignored_argument_prefix": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_unused.py",
+    "fail_to_pass": [
+      "tests/test_unused.py::test_underscore_and_dummy_prefixes"
+    ],
+    "pass_to_pass": [
+      "tests/test_unused.py::test_single_underscore_and_normal"
+    ]
+  },
+  "pylint_format_line_length_ignore_long_url": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_line_length.py",
+    "fail_to_pass": [
+      "tests/test_line_length.py::test_long_url_comment_exempt"
+    ],
+    "pass_to_pass": [
+      "tests/test_line_length.py::test_short_and_long_code_lines"
+    ]
+  },
+  "pylint_config_csv_option_strip_empty": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_options.py",
+    "fail_to_pass": [
+      "tests/test_options.py::test_empty_and_trailing_comma"
+    ],
+    "pass_to_pass": [
+      "tests/test_options.py::test_standard_csv"
+    ]
+  },
+  "pylint_typecheck_callable_inherited": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_callable_check.py",
+    "fail_to_pass": [
+      "tests/test_callable_check.py::test_inherited_call_method"
+    ],
+    "pass_to_pass": [
+      "tests/test_callable_check.py::test_direct_call_method"
+    ]
+  },
+  "pylint_classes_valid_dunder_exit_args": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_special_methods.py",
+    "fail_to_pass": [
+      "tests/test_special_methods.py::test_varargs_exit_signature"
+    ],
+    "pass_to_pass": [
+      "tests/test_special_methods.py::test_standard_four_args"
+    ]
+  },
+  "xarray_merge_attrs_no_conflicts": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_attrs.py",
+    "fail_to_pass": [
+      "tests/test_attrs.py::test_conflicting_attrs_raises"
+    ],
+    "pass_to_pass": [
+      "tests/test_attrs.py::test_compatible_attrs"
+    ]
+  },
+  "xarray_coding_timedelta_preserve_none": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_timedeltas.py",
+    "fail_to_pass": [
+      "tests/test_timedeltas.py::test_preserves_none_entries"
+    ],
+    "pass_to_pass": [
+      "tests/test_timedeltas.py::test_numeric_timedeltas"
+    ]
+  },
+  "xarray_formatting_maybe_truncate_exact": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_truncate.py",
+    "fail_to_pass": [
+      "tests/test_truncate.py::test_exact_maxlen_not_truncated"
+    ],
+    "pass_to_pass": [
+      "tests/test_truncate.py::test_short_and_long"
+    ]
+  },
+  "astropy_io_ascii_strip_indented_comments": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_reader.py",
+    "fail_to_pass": [
+      "tests/test_reader.py::test_indented_comments_and_blank_lines"
+    ],
+    "pass_to_pass": [
+      "tests/test_reader.py::test_unindented_comments"
+    ]
+  },
+  "astropy_modeling_bounding_box_nan": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_bbox_bounds.py",
+    "fail_to_pass": [
+      "tests/test_bbox_bounds.py::test_nan_bounds_rejected"
+    ],
+    "pass_to_pass": [
+      "tests/test_bbox_bounds.py::test_valid_and_inverted_bounds"
+    ]
+  },
+  "seaborn_axisgrid_Bottom_row_labels": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_labels.py",
+    "fail_to_pass": [
+      "tests/test_labels.py::test_shared_x_bottom_row_and_y_left_col"
+    ],
+    "pass_to_pass": [
+      "tests/test_labels.py::test_unshared_labels"
+    ]
+  },
+  "seaborn_scales_log_nonpositive_none": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_log.py",
+    "fail_to_pass": [
+      "tests/test_log.py::test_nonpositive_and_none_mapped_to_none"
+    ],
+    "pass_to_pass": [
+      "tests/test_log.py::test_positive_values"
+    ]
+  },
+  "werkzeug_http_parse_age_negative": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_age.py",
+    "fail_to_pass": [
+      "tests/test_age.py::test_negative_and_none_age"
+    ],
+    "pass_to_pass": [
+      "tests/test_age.py::test_valid_and_invalid_age"
+    ]
+  },
+  "werkzeug_datastructures_range_to_header": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_byterange.py",
+    "fail_to_pass": [
+      "tests/test_byterange.py::test_suffix_byte_range"
+    ],
+    "pass_to_pass": [
+      "tests/test_byterange.py::test_standard_ranges"
+    ]
+  },
+  "werkzeug_security_safe_join_windows_drive": {
+    "before_repo_set_cmd": "git checkout . && git clean -fd",
+    "selected_test_files_to_run": "PYTHONPATH=. pytest -v tests/test_paths.py",
+    "fail_to_pass": [
+      "tests/test_paths.py::test_rejects_drive_and_backslash"
+    ],
+    "pass_to_pass": [
+      "tests/test_paths.py::test_valid_and_parent_traversal"
+    ]
+  }
+}

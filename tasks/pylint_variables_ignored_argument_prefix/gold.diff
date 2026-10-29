@@ -1,0 +1,8 @@
+diff --git a/pylint_vars/unused.py b/pylint_vars/unused.py
+index 626b2cc..54b04a9 100644
+--- a/pylint_vars/unused.py
++++ b/pylint_vars/unused.py
+@@ -1,2 +1,2 @@
+ def is_ignored_arg(name: str) -> bool:
+-    return name == "_"
++    return name.startswith("_") or name.startswith("dummy_")

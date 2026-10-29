@@ -1,0 +1,11 @@
+diff --git a/pytest_warnings/recorder.py b/pytest_warnings/recorder.py
+index 95bfd5c..c3bd69d 100644
+--- a/pytest_warnings/recorder.py
++++ b/pytest_warnings/recorder.py
+@@ -1,5 +1,5 @@
+ def pop_warning(recorded: list, expected_cls: type):
+     for i, w in enumerate(recorded):
+-        if type(w) is expected_cls:
++        if isinstance(w, expected_cls):
+             return recorded.pop(i)
+     raise AssertionError(f"{expected_cls.__name__} not found")

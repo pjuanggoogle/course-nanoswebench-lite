@@ -1,0 +1,14 @@
+diff --git a/werkzeug_http/age.py b/werkzeug_http/age.py
+index 655dab6..bd13fc6 100644
+--- a/werkzeug_http/age.py
++++ b/werkzeug_http/age.py
+@@ -1,5 +1,8 @@
+ def parse_age(value: str | None) -> int | None:
++    if value is None:
++        return None
+     try:
+-        return int(value)
++        rv = int(value)
+     except ValueError:
+         return None
++    return rv if rv >= 0 else None

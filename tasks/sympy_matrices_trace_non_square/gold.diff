@@ -1,0 +1,13 @@
+diff --git a/sympy_matrices/trace.py b/sympy_matrices/trace.py
+index d31ac37..ad91109 100644
+--- a/sympy_matrices/trace.py
++++ b/sympy_matrices/trace.py
+@@ -1,4 +1,7 @@
+ def matrix_trace(rows: list[list[float]]) -> float:
+     if not rows:
+         return 0
+-    return sum(rows[i][i] for i in range(len(rows)))
++    n = len(rows)
++    if any(len(r) != n for r in rows):
++        raise ValueError("Matrix must be square")
++    return sum(rows[i][i] for i in range(n))

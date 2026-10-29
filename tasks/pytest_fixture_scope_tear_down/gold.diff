@@ -1,0 +1,20 @@
+diff --git a/pytest_fixtures/manager.py b/pytest_fixtures/manager.py
+index a0e3db4..53fddba 100644
+--- a/pytest_fixtures/manager.py
++++ b/pytest_fixtures/manager.py
+@@ -15,10 +15,14 @@ class FixtureManager:
+         return val
+ 
+     def teardown(self):
+-        # BUG: Stops at the first exception, leaving remaining generators unfinalized
++        errors = []
+         while self.stack:
+             gen = self.stack.pop()
+             try:
+                 next(gen)
+             except StopIteration:
+                 pass
++            except Exception as e:
++                errors.append(e)
++        if errors:
++            raise TeardownErrorGroup(errors)

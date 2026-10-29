@@ -1,0 +1,13 @@
+diff --git a/requests_lib/models.py b/requests_lib/models.py
+index f26197a..f581c69 100644
+--- a/requests_lib/models.py
++++ b/requests_lib/models.py
+@@ -11,7 +11,7 @@ class PreparedRequest:
+ 
+         scheme, netloc, path, query, fragment = urllib.parse.urlsplit(url)
+         # BUG: doseq is not set to True, so lists are stringified as brackets
+-        new_query = urllib.parse.urlencode(params)
++        new_query = urllib.parse.urlencode(params, doseq=True)
+ 
+         if query:
+             final_query = f"{query}&{new_query}"

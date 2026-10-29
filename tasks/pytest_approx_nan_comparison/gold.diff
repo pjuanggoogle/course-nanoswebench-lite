@@ -1,0 +1,14 @@
+diff --git a/pytest_approx/approx.py b/pytest_approx/approx.py
+index 4df064c..ee200d4 100644
+--- a/pytest_approx/approx.py
++++ b/pytest_approx/approx.py
+@@ -9,6 +9,8 @@ class ApproxScalar:
+ 
+     def __eq__(self, actual: float) -> bool:
+         if math.isnan(self.expected) or math.isnan(actual):
+-            return False
++            return self.nan_ok and math.isnan(self.expected) and math.isnan(actual)
++        if math.isinf(self.expected) or math.isinf(actual):
++            return actual == self.expected
+         tol = max(self.abs_tol, abs(self.expected) * self.rel)
+         return abs(actual - self.expected) <= tol

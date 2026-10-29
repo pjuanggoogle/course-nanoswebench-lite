@@ -1,0 +1,15 @@
+diff --git a/pylint_doc/return_doc.py b/pylint_doc/return_doc.py
+index 05cefdd..9a922de 100644
+--- a/pylint_doc/return_doc.py
++++ b/pylint_doc/return_doc.py
+@@ -4,6 +4,8 @@ def needs_return_doc(func_code: str) -> bool:
+     tree = ast.parse(func_code)
+     func = tree.body[0]
+     for node in ast.walk(func):
+-        if isinstance(node, ast.Return):
+-            return node.value is not None
++        if isinstance(node, (ast.Yield, ast.YieldFrom)):
++            return True
++        if isinstance(node, ast.Return) and node.value is not None:
++            return True
+     return False

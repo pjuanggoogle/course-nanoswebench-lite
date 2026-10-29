@@ -1,0 +1,12 @@
+diff --git a/pylint_flow/unreachable.py b/pylint_flow/unreachable.py
+index ad89d52..c49f096 100644
+--- a/pylint_flow/unreachable.py
++++ b/pylint_flow/unreachable.py
+@@ -1,6 +1,6 @@
+ import ast
+ 
+-TERMINATORS = (ast.Return, ast.Raise)
++TERMINATORS = (ast.Return, ast.Raise, ast.Break, ast.Continue)
+ 
+ def _check_block(stmts: list[ast.stmt], out: list[int]):
+     terminated = False

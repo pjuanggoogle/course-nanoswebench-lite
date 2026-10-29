@@ -1,0 +1,13 @@
+diff --git a/django_forms/forms.py b/django_forms/forms.py
+index 98f4e02..6dc73e3 100644
+--- a/django_forms/forms.py
++++ b/django_forms/forms.py
+@@ -8,6 +8,8 @@ class Form:
+         changed = []
+         for name, bound_val in self.data.items():
+             init_val = self.initial.get(name)
++            if callable(init_val):
++                init_val = init_val()
+             if bound_val != init_val:
+                 changed.append(name)
+         return changed

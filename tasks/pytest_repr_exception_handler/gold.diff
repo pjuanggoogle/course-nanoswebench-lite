@@ -1,0 +1,13 @@
+diff --git a/failure_formatter.py b/failure_formatter.py
+index cfbcf6f..658a97a 100644
+--- a/failure_formatter.py
++++ b/failure_formatter.py
+@@ -1,4 +1,7 @@
+ def format_failure(exc: Exception, obj) -> str:
+     """Formats test failure with object representation."""
+-    obj_repr = repr(obj) # BUG: Crashes if obj.__repr__ raises
++    try:
++        obj_repr = repr(obj)
++    except Exception as e:
++        obj_repr = f"<[unhandled exception in __repr__]: {type(e).__name__}: {e}>"
+     return f"FAIL: {type(exc).__name__}: {str(exc)} | target={obj_repr}"

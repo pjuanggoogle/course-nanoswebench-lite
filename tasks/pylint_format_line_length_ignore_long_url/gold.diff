@@ -1,0 +1,13 @@
+diff --git a/pylint_format/line_length.py b/pylint_format/line_length.py
+index 57b3cab..d6a137f 100644
+--- a/pylint_format/line_length.py
++++ b/pylint_format/line_length.py
+@@ -1,2 +1,7 @@
+ def is_line_too_long(line: str, max_len: int = 80) -> bool:
+-    return len(line) > max_len
++    if len(line) <= max_len:
++        return False
++    cleaned = line.lstrip().lstrip("#").strip()
++    if " " not in cleaned and cleaned.startswith(("http://", "https://")):
++        return False
++    return True

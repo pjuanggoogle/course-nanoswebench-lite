@@ -1,0 +1,12 @@
+diff --git a/sphinx_util/ansi.py b/sphinx_util/ansi.py
+index 77d4c96..9b9eb78 100644
+--- a/sphinx_util/ansi.py
++++ b/sphinx_util/ansi.py
+@@ -1,6 +1,6 @@
+ import re
+ 
+-ANSI_RE = re.compile(r"\x1b\[\d+m")
++ANSI_RE = re.compile(r"\x1b\[[0-9;]*m")
+ 
+ def strip_ansi_codes(text: str) -> str:
+     return ANSI_RE.sub("", text)

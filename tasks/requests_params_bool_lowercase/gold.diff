@@ -1,0 +1,13 @@
+diff --git a/requests_params/models.py b/requests_params/models.py
+index 6c2b642..7cf815e 100644
+--- a/requests_params/models.py
++++ b/requests_params/models.py
+@@ -1,6 +1,8 @@
+ from urllib.parse import urlencode
+ 
+ def _fmt(val, normalize_bool: bool) -> str:
++    if normalize_bool and isinstance(val, bool):
++        return "true" if val else "false"
+     return str(val)
+ 
+ def encode_query_params(data, normalize_bool: bool = False) -> str:

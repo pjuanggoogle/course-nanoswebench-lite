@@ -1,0 +1,10 @@
+diff --git a/xarray_coding/timedeltas.py b/xarray_coding/timedeltas.py
+index ed3fa4b..444b2b3 100644
+--- a/xarray_coding/timedeltas.py
++++ b/xarray_coding/timedeltas.py
+@@ -2,4 +2,4 @@ SCALE = {"s": 1, "m": 60, "h": 3600, "D": 86400}
+ 
+ def decode_timedeltas(values: list[int | None], unit: str) -> list[int | None]:
+     factor = SCALE[unit]
+-    return [x * factor for x in values]
++    return [None if x is None else x * factor for x in values]

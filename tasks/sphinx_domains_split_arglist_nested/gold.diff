@@ -1,0 +1,23 @@
+diff --git a/sphinx_domains/arglist.py b/sphinx_domains/arglist.py
+index 8d876ca..b98ed01 100644
+--- a/sphinx_domains/arglist.py
++++ b/sphinx_domains/arglist.py
+@@ -1,4 +1,17 @@
+ def split_arglist(arglist: str) -> list[str]:
+     if not arglist.strip():
+         return []
+-    return [p.strip() for p in arglist.split(",")]
++    parts, cur, depth = [], [], 0
++    for ch in arglist:
++        if ch in "([":
++            depth += 1
++        elif ch in ")]":
++            depth -= 1
++        if ch == "," and depth == 0:
++            parts.append("".join(cur).strip())
++            cur = []
++        else:
++            cur.append(ch)
++    if cur:
++        parts.append("".join(cur).strip())
++    return parts

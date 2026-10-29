@@ -1,0 +1,14 @@
+diff --git a/xarray_bins/groupby.py b/xarray_bins/groupby.py
+index 72c6330..a2f409f 100644
+--- a/xarray_bins/groupby.py
++++ b/xarray_bins/groupby.py
+@@ -1,6 +1,9 @@
+ def digitize_bins(values: list[float], edges: list[float], include_lowest: bool = False) -> list[int]:
+     out = []
+     for v in values:
++        if include_lowest and v == edges[0]:
++            out.append(0)
++            continue
+         placed = -1
+         for i in range(len(edges) - 1):
+             if edges[i] < v <= edges[i + 1]:

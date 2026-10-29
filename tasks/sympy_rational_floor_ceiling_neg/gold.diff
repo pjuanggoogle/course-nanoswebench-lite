@@ -1,0 +1,21 @@
+diff --git a/sympy_rat/rational.py b/sympy_rat/rational.py
+index bf26cc1..8a7d185 100644
+--- a/sympy_rat/rational.py
++++ b/sympy_rat/rational.py
+@@ -4,12 +4,14 @@ class Rational:
+     def __init__(self, p: int, q: int = 1):
+         if q == 0:
+             raise ZeroDivisionError("Denominator cannot be zero")
++        if q < 0:
++            p, q = -p, -q
+         g = math.gcd(p, q)
+         self.p = p // g
+         self.q = q // g
+ 
+     def floor(self) -> int:
+-        return int(self.p / self.q)
++        return self.p // self.q
+ 
+     def ceiling(self) -> int:
+-        return int(self.p / self.q) + (1 if self.p % self.q != 0 else 0)
++        return -((-self.p) // self.q)

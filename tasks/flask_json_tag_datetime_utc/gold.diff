@@ -1,0 +1,10 @@
+diff --git a/flask_json/tag.py b/flask_json/tag.py
+index 972ef43..d034941 100644
+--- a/flask_json/tag.py
++++ b/flask_json/tag.py
+@@ -4,4 +4,4 @@ def serialize_datetime(dt: datetime) -> str:
+     if dt.tzinfo is None:
+         return dt.isoformat()
+     utc_dt = dt.astimezone(timezone.utc)
+-    return utc_dt.isoformat() + "Z"
++    return utc_dt.replace(tzinfo=None).isoformat() + "Z"

@@ -1,0 +1,13 @@
+diff --git a/pytest_mp/monkeypatch.py b/pytest_mp/monkeypatch.py
+index 490667a..6d79825 100644
+--- a/pytest_mp/monkeypatch.py
++++ b/pytest_mp/monkeypatch.py
+@@ -8,7 +8,7 @@ class MonkeyPatch:
+         self.env[name] = str(value)
+ 
+     def undo(self):
+-        for name, old_val in self._saved_env:
++        for name, old_val in reversed(self._saved_env):
+             if old_val is None:
+                 self.env.pop(name, None)
+             else:

@@ -1,0 +1,20 @@
+diff --git a/dateutil_rrule/rrule.py b/dateutil_rrule/rrule.py
+index f06de7a..fcb2a13 100644
+--- a/dateutil_rrule/rrule.py
++++ b/dateutil_rrule/rrule.py
+@@ -15,9 +15,12 @@ class rrule:
+         for _ in range(100):
+             if len(res) >= self.count:
+                 break
+-            candidate = date(year, month, day)
+-            if after <= candidate <= before:
+-                res.append(candidate)
++            try:
++                candidate = date(year, month, day)
++                if after <= candidate <= before:
++                    res.append(candidate)
++            except ValueError:
++                pass
+             if self.freq == YEARLY:
+                 year += 1
+             else:

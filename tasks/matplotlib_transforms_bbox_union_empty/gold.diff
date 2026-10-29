@@ -1,0 +1,19 @@
+diff --git a/mpl_transforms/bbox.py b/mpl_transforms/bbox.py
+index ccb19c9..6d5463a 100644
+--- a/mpl_transforms/bbox.py
++++ b/mpl_transforms/bbox.py
+@@ -1,8 +1,9 @@
+ def bbox_union(bboxes: list[tuple[float, float, float, float]]):
+-    if not bboxes:
++    valid = [b for b in bboxes if b[0] != b[2] and b[1] != b[3]]
++    if not valid:
+         return None
+-    x0 = min(b[0] for b in bboxes)
+-    y0 = min(b[1] for b in bboxes)
+-    x1 = max(b[2] for b in bboxes)
+-    y1 = max(b[3] for b in bboxes)
++    x0 = min(b[0] for b in valid)
++    y0 = min(b[1] for b in valid)
++    x1 = max(b[2] for b in valid)
++    y1 = max(b[3] for b in valid)
+     return (x0, y0, x1, y1)

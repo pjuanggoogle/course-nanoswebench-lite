@@ -1,0 +1,28 @@
+diff --git a/url_utils.py b/url_utils.py
+index 37626f7..586f51b 100644
+--- a/url_utils.py
++++ b/url_utils.py
+@@ -1,15 +1,16 @@
++import re
+ import urllib.parse
+ 
+ def sanitize_url(raw: str) -> dict:
+-    # BUG: Does not prepend default 'http://' scheme before urlsplit or escape stray '%' as '%25'
+-    parsed = urllib.parse.urlsplit(raw)
+-    scheme = parsed.scheme or "http"
+-    netloc = parsed.netloc
+-    path = urllib.parse.unquote(parsed.path)
++    if not re.match(r'^[a-zA-Z][a-zA-Z0-9+-.]*://', raw):
++        raw = "http://" + raw
++    # Escape standalone '%' that are not valid hex escapes
++    sanitized = re.sub(r'%(?![0-9a-fA-F]{2})', '%25', raw)
++    parsed = urllib.parse.urlsplit(sanitized)
+     return {
+-        "scheme": scheme,
++        "scheme": parsed.scheme,
+         "host": parsed.hostname,
+         "port": parsed.port,
+-        "path": path,
++        "path": urllib.parse.unquote(parsed.path),
+         "query": parsed.query
+     }

@@ -1,0 +1,16 @@
+diff --git a/chunked_decoder.py b/chunked_decoder.py
+index af464a8..0da147a 100644
+--- a/chunked_decoder.py
++++ b/chunked_decoder.py
+@@ -5,8 +5,9 @@ def decode_chunked_stream(raw: bytes) -> bytes:
+         crlf = raw.find(b"\r\n", idx)
+         if crlf == -1: break
+         header = raw[idx:crlf]
+-        # BUG: Int conversion fails if chunk has extensions (e.g. '1f;ext=val')
+-        chunk_len = int(header, 16)
++        # Clean extensions: '1f;ext=val' -> '1f'
++        hex_len = header.split(b";")[0].strip()
++        chunk_len = int(hex_len, 16)
+         if chunk_len == 0:
+             break
+         idx = crlf + 2

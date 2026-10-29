@@ -1,0 +1,44 @@
+diff --git a/polynomial.py b/polynomial.py
+index d8093e4..8b1f370 100644
+--- a/polynomial.py
++++ b/polynomial.py
+@@ -1,8 +1,14 @@
+-def poly_gcd(p1: list[float], p2: list[float]) -> list[float]:
+-    """Compute monic polynomial GCD using Euclidean algorithm."""
++def poly_gcd(p1: list[float], p2: list[float], eps: float = 1e-7) -> list[float]:
++    """Compute monic polynomial GCD using Euclidean algorithm with numerical epsilon snapping."""
++    def clean(p):
++        res = [0.0 if abs(c) < eps else c for c in p]
++        while len(res) > 1 and abs(res[-1]) < eps:
++            res.pop()
++        return res
++
+     def degree(p):
+         for i in range(len(p) - 1, -1, -1):
+-            if abs(p[i]) > 0: # BUG: exact zero check fails on float precision drift
++            if abs(p[i]) >= eps:
+                 return i
+         return -1
+ 
+@@ -10,7 +16,7 @@ def poly_gcd(p1: list[float], p2: list[float]) -> list[float]:
+         deg_num, deg_den = degree(num), degree(den)
+         if deg_den < 0: raise ZeroDivisionError()
+         quot = [0.0] * max(0, deg_num - deg_den + 1)
+-        rem = list(num)
++        rem = clean(num)
+         while degree(rem) >= deg_den:
+             d_rem = degree(rem)
+             lead = rem[d_rem] / den[deg_den]
+@@ -18,9 +24,10 @@ def poly_gcd(p1: list[float], p2: list[float]) -> list[float]:
+             quot[diff] += lead
+             for i in range(deg_den + 1):
+                 rem[i + diff] -= lead * den[i]
+-        return quot, rem
++            rem = clean(rem)
++        return clean(quot), clean(rem)
+ 
+-    a, b = list(p1), list(p2)
++    a, b = clean(p1), clean(p2)
+     while degree(b) >= 0:
+         _, rem = poly_div(a, b)
+         a, b = b, rem
